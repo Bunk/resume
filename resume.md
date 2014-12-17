@@ -121,30 +121,26 @@ Community Health Systems
 
 ------
 
-### Projects
+### Projects {#projects}
 
-* **Trellow**
-    [Trellow](http://github.com/Bunk/trellow)
+Trellow
+:   **[http://github.com/Bunk/trellow](http://github.com/Bunk/trellow)**
     An awesome Windows Phone 8 Trello client leveraging SignalR, Caliburn Micro, and SimpleContainer in C#.
 
-* **HL7 Dashboard**
-    [Demo Site](http://hl7-dashboard.azurewebsites.net/)
+HL7 Dashboard
+:    **[http://hl7-dashboard.azurewebsites.net/](http://hl7-dashboard.azurewebsites.net/)**
     A responsive dashboard for searching & viewing HL7 message throughput built on Web API, DurandalJS, SignalR, and Lucene.
 
-* **lollipop**
-    [lollipop](http://github.com/Bunk/lollipop)
+lollipop
+:    **[http://github.com/Bunk/lollipop](http://github.com/Bunk/lollipop)**
     A League of Legends client API for scraping data from game servers using RTMPS.
 
-* **farse**
-    [farse](http://github.com/Bunk/farse)
-    A simple F# parsing and formatting library supporting Markdown.
-
-* **flippers**
-    [flippers](http://github.com/Bunk/flippers)
+flippers
+:    **[http://github.com/Bunk/flippers](http://github.com/Bunk/flippers)**
     A feature toggles micro-service built on the MEAN stack with planned client support in JavaScript, C#, Java, and Ruby.
 
-* **resume**
-    [resume](http://github.com/Bunk/resume)
+resume
+:    **[http://github.com/Bunk/resume](http://github.com/Bunk/resume)**
     This resume hosted as a continuous deployment project written in Markdown and deployed as a simple HTML site.
 
 ------

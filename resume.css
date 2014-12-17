@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Old+Standard+TT);
-
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 /* clearfix */
@@ -230,6 +229,10 @@ dl em {
   text-align: center;
 }
 
+#projects ~ ol li {
+    min-height: 150px;
+}
+
 @media screen {
   body {
     padding: 0;
@@ -313,7 +316,7 @@ dl em {
   }
   dl strong {
     float: right;
-    margin-top: -2em;
+    margin-top: -2.5em;
   }
   dl em {
     font-size: 130%;
