@@ -4,43 +4,43 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-$for(author-meta)$
+  $for(author-meta)$
   <meta name="author" content="$author-meta$">
-$endfor$
-$if(date-meta)$
+  $endfor$
+  $if(date-meta)$
   <meta name="dcterms.date" content="$date-meta$">
-$endif$
+  $endif$
   <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-$if(quotes)$
+  $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
-$endif$
-$if(highlighting-css)$
+  $endif$
+  $if(highlighting-css)$
   <style type="text/css">
-$highlighting-css$
+    $highlighting-css$
   </style>
-$endif$
-$for(css)$
+  $endif$
+  $for(css)$
   <link rel="stylesheet" href="$css$">
-$endfor$
-$if(math)$
-  $math$
-$endif$
-$for(header-includes)$
-  $header-includes$
-$endfor$
+  $endfor$
+  $if(math)$
+    $math$
+  $endif$
+  $for(header-includes)$
+    $header-includes$
+  $endfor$
 </head>
 <body>
-$for(include-before)$
-    $include-before$
-$endfor$
-<div class="container">
+    <div class="container">
+    $for(include-before)$
+        $include-before$
+    $endfor$
     <div class="resume">
         $if(title)$
-        <header>
+        <header itemscope itemtype="http://http://schema.org/Person">
             <h1 class="title">$title$</h1>
             $if(subtitle)$
             <h1 class="subtitle">$subtitle$</h1>
@@ -52,11 +52,6 @@ $endfor$
             <h3 class="date">$date$</h3>
             $endif$
         </header>
-        $endif$
-        $if(toc)$
-        <nav id="$idprefix$TOC">
-            $toc$
-        </nav>
         $endif$
         $body$
     </div>

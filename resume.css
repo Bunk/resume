@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Old+Standard+TT);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
 /* clearfix */
 
@@ -43,6 +44,10 @@ h1, h2, h3, h4, ul dl dt {
   padding: 10px 20px;
 }
 
+blockquote span {
+    display: block;
+}
+
 blockquote a {
   color: #1D1313;
   -webkit-transition: color 0.3s linear;
@@ -50,11 +55,14 @@ blockquote a {
   -ms-transition: color 0.3s linear;
   -o-transition: color 0.3s linear;
   transition: color 0.3s linear;
-  display: block;
 }
 
 blockquote a:hover {
   color: #d22042;
+}
+
+.fa {
+    padding-left: 10px;
 }
 
 a {

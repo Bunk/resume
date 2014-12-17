@@ -1,20 +1,24 @@
 # JD Courtoy
 ## Lead Architect & Coding Samurai
 
-> [github.com/Bunk](https://github.com/Bunk)
->  [linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)
-> [jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)
-> (615) 332-2716
+> <span>[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i></span>
+> <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
+> <span>[jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)<i class="fa fa-envelope-square"></i><span>
+> <span>[(615) 332-2716](callto:+16153322716)<i class="fa fa-phone-square"></i>
+
+------
+
+### Summary
+
+I'm passionate about software development and seek to work with other like-minded polyglots who know how to use the right tool for the job at hand.  I'm driven to find the simplest solution to software problems that drive customer value, and am a life-long, continuous student of the industry.  I love to work in architecture, design, and development of large- and small-scale systems; and build the teams and environments that make great things happen.
 
 ------
 
 ### Languages
 
 1. JavaScript
-1. Java
-1. Groovy
-1. C#
-1. F#
+1. Java / Groovy
+1. C# / F#
 1. Ruby
 
 ### Platforms
@@ -43,7 +47,7 @@
 ### Experience
 
 Asurion
-:   **Apr 2014 - Current** *Sr. Development Tech Lead*
+:   **Mar 2014 - Current** *Sr. Development Tech Lead*
 
     * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
     * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
@@ -147,5 +151,5 @@ resume
 
 ###Education
 
-**Bachelor of Science (Computer Science)** __2000 - 2005__
-    Georgia Institute of Technology, Atlanta, Georgia
+Bachelor of Science (Computer Science)
+:   **2000 - 2005** *Georgia Institute of Technology*
