@@ -22,30 +22,35 @@ I'm passionate about software development and seek to work with other like-minde
 ### Languages
 
 1. JavaScript
-1. Java / Groovy
-1. C# / F#
-1. Ruby
+2. Java / Groovy
+3. C# / F#
+4. Ruby
+5. Powershell / Bash
+6. Antlr / C / C++
 
 ### Platforms
 
-1. ASP.NET / MVC / Web API
 1. Spring 4 / Spring Boot
-1. NodeJS
-1. SQL Server / MySQL
-1. NoSQL / Hadoop
-1. Azure / AWS / Heroku
-1. Git / SVN
+2. ASP.NET / MVC / Web API
+3. NodeJS
+4. NoSQL / Hadoop
+5. SQL Server / MySQL
+6. Azure / AWS / Heroku
+7. Git / Hg / SVN
+8. OS X / Linux / Windows
+9. RabbitMQ / NServiceBus
 
 ### Skills
 
 1. Scrum / Kanban / Agile
-1. Aspect Oriented Programming
-1. Service Oriented Programming
-1. Object Orientation
-1. Test Driven Development
-1. Trunk-Based Development
-1. Continuous Delivery
-1. Team Building
+2. OOA / OOD / AOP
+3. SOA / Micro-Services
+4. Test-Driven Development
+5. Trunk-Based Development
+6. Continuous Delivery
+7. Continuous Review
+8. Team Building
+9. Polyglot
 
 ------
 
@@ -83,8 +88,7 @@ Press Ganey Associates
 
     Tech Stack: C#, NServiceBus, Autofac, StructureMap, RavenDB, SQL Server 2012
 
-Press Ganey Associates
-:   **Nov 2009 - Oct 2013 (aquisition)** *Director, Software Architecture*
+:   *Director, Software Architecture*
 
     * Architected and built the Quality Performer (QP) front-end website to push front-end logic to the client.
     * Architected and re-engineered the QP service and front-end to utilize a CQRS architecture which dramatically improved the performance and feedback of the application by an order of magnitude (5s to 50ms).
@@ -109,7 +113,7 @@ Data Advantage, LLC
     Tech Stack: C#, ASP.NET MVC, Caliburn / Prism, Castle Windsor, NHibernate, SQL Server 2008 R2, SSRS, JavaScript, RaphaelJS, HighCharts, ArcGIS, SVN, Cruise Control
 
 Loch Erin
-:   **Feb 2007 - Jan 2008** *Principal Software Architect*
+:   **Feb 2007 - Jan 2008 (acquisition)** *Principal Software Architect*
 
     * Architected and engineered the Quality Manager (QM) web-based front-end application designed to meet governmental compliance regulations around quality of care metrics in hospitals.
     * Architected and engineered custom visual flowcharting rules engine for the QM application built upon Microsoft Workflow Foundation (WF).  We were one of the first Microsoft shops to deliver a production implementation of WF.
@@ -132,11 +136,11 @@ Community Health Systems
 
 ### Projects {#projects}
 
-Trellow
+trellow
 :   **[http://github.com/Bunk/trellow](http://github.com/Bunk/trellow)**
     An awesome Windows Phone 8 Trello client leveraging SignalR, Caliburn Micro, and SimpleContainer in C#.
 
-HL7 Dashboard
+HL7 dashboard
 :    **[http://hl7-dashboard.azurewebsites.net/](http://hl7-dashboard.azurewebsites.net/)**
     A responsive dashboard for searching & viewing HL7 message throughput built on Web API, DurandalJS, SignalR, and Lucene.
 
