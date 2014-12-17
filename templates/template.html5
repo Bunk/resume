@@ -39,20 +39,6 @@
         $include-before$
     $endfor$
     <div class="resume">
-        $if(title)$
-        <header itemscope itemtype="http://http://schema.org/Person">
-            <h1 class="title">$title$</h1>
-            $if(subtitle)$
-            <h1 class="subtitle">$subtitle$</h1>
-            $endif$
-            $for(author)$
-            <h2 class="author">$author$</h2>
-            $endfor$
-            $if(date)$
-            <h3 class="date">$date$</h3>
-            $endif$
-        </header>
-        $endif$
         $body$
     </div>
 </div>

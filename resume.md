@@ -1,3 +1,8 @@
+---
+title: 'JD Courtoy - Resume'
+author: 'JD Courtoy'
+---
+
 # JD Courtoy
 ## Lead Architect & Coding Samurai
 
@@ -50,10 +55,10 @@ Asurion
 :   **Mar 2014 - Current** *Sr. Development Tech Lead*
 
     * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
-    * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
     * Instrumental in designing and implementing a trunk-based build and deployment pipeline in order to facilitate continuous delivery for our department.
+    * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
+    * Pushed technical excellence by achieving 100% peer-reviewed and tested code.
     * Led groups of technical and business colleagues through Sharpen-the-Saw meet-ups in order to drive knowledge share across the company.
-    * Pushed technical excellence by achieving 100% peer-reviewed and tested code on a more modular architecture.
     * Provided technical direction and training to Junior developers across teams, culminating in universal improvement in produced quality across teams.
     * Ushered in the company's first OSS initiative by providing a candidate project (Feature Toggles).
 
