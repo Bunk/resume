@@ -15,7 +15,7 @@ author: 'JD Courtoy'
 
 ### Summary
 
-I'm passionate about software development and seek to work with other like-minded polyglots who know how to use the right tool for the job at hand.  I'm driven to find the simplest solution to software problems that deliver customer value, and am a life-long, continuous student of the industry.  I love to work in architecture, design, and development of large- and small-scale systems; and build the teams and environments that make incredible things happen.
+I have a passion for solving complicated problems through software, and seek to work with other like-minded polyglots who know how to use the right tool for the job at hand.  I'm driven to find the simplest solution to software problems that deliver customer value, and am a life-long, continuous student of the industry.  I love to work in architecture, design, and development of large- and small-scale systems; and build the teams and environments that make incredible things happen.
 
 ------
 
@@ -32,13 +32,14 @@ I'm passionate about software development and seek to work with other like-minde
 
 1. Spring 4 / Spring Boot
 2. ASP.NET / MVC / Web API
-3. NodeJS
+3. NodeJS / Hapi / Seneca
 4. NoSQL / Hadoop
 5. SQL Server / MySQL
-6. Azure / AWS / Heroku
-7. Git / Hg / SVN
-8. OS X / Linux / Windows
-9. RabbitMQ / NServiceBus
+6. Docker / Compose / Tutum
+7. Azure / AWS / Heroku
+8. Git / Hg / SVN
+9. OS X / Linux / Windows
+10. RabbitMQ / NServiceBus
 
 ### Skills
 
@@ -55,9 +56,19 @@ I'm passionate about software development and seek to work with other like-minde
 ------
 
 ### Experience
+NC2 Media
+:   **Feb 2015 - Current** *Sr. Full Stack Developer*
+
+    * Architected and developed a cutting-edge marketplace platform for video sales.
+    * Designed and implemented a trunk-based continuous delivery pipeline with feature toggles.
+    * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
+    * Provided technical direction and training to Junior developers across teams, culminating in universal improvement in produced quality across the department.
+    * Delivered OSS projects for the company in order to increase community visibility and sharing.
+
+    Tech Stack: C#, F#, JavaScript, AngularJS, Cucumber, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
 
 Asurion
-:   **Apr 2014 - Current** *Sr. Development Tech Lead*
+:   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
 
     * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which can be utilized across tenants.
     * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitates continuous delivery for our department.
