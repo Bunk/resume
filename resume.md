@@ -59,13 +59,14 @@ I have a passion for solving complicated problems through software, and seek to 
 NC2 Media
 :   **Feb 2015 - Current** *Sr. Full Stack Developer*
 
-    * Architected and developed a cutting-edge marketplace platform for video sales.
-    * Designed and implemented a trunk-based continuous delivery pipeline with feature toggles.
-    * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
-    * Provided technical direction and training to Junior developers across teams, culminating in universal improvement in produced quality across the department.
-    * Delivered OSS projects for the company in order to increase community visibility and sharing.
+    * Developed a cutting-edge marketplace platform for video sales pushing towards a micro-services architecture.
+    * Automated all things dealing with continuous delivery to the Azure cloud as resident DevOps evangelist.
+    * Supported the team in establishing an Agile development culture, and the adoption of new coding standards, peer code reviews, and tooling.
+    * Responsible for helping drive lean development practices, scalable architecture, and delivering MVP's.
+    * Provided technical direction and mentoring to Junior developers.
+    * Open-sourced a few of our internal tools including a scaffolding engine for our front-end SPA apps, and Be-Be, our friendly chat ops automation bot.
 
-    Tech Stack: C#, F#, JavaScript, AngularJS, Cucumber, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
+    Tech Stack: C#, F#, JavaScript, AngularJS, CucumberJS, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
 
 Asurion
 :   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
