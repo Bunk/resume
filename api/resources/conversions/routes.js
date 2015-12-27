@@ -1,10 +1,14 @@
 'use strict';
 
 const Joi = require('joi');
+const JackRabbit = require('jackrabbit');
+const Mongoose = require('mongoose');
 const Controller = require('./controller');
 
 exports.register = function (server, options, next) {
-    let controller = new Controller(options);
+    let rabbit = JackRabbit(options.rabbitUrl);
+    let controller = new Controller(rabbit.default(), server.methods.mongoose());
+    server.bind(controller);
 
     // /conversions
     //      POST    - Create a new translation task for a given resume
@@ -24,7 +28,7 @@ exports.register = function (server, options, next) {
             id: 'convert',
             handler: controller.start,
             validate: {
-                payload: Joi.object().length(1).keys({
+                payload: Joi.object().keys({
                     resumeId: validations.id.required(),
                     templateId: validations.id,
                     format: validations.format.required()

@@ -1,42 +1,15 @@
 'use strict';
 
-let shortid = require('shortid');
+const ShortId = require('shortid');
+const JackRabbit = require('jackrabbit');
+const Hoek = require('hoek');
+const Joi = require('joi');
 
-let topics = {};
+module.exports.register = (plugin, userOptions, next) => {
+    let defaultOptions = {
+        uri : process.env.RABBIT_URL || 'amqp://resume'
+    };
 
-class Subscription {
-    constructor (topic, listener) {
-        this.topic = topic;
-        this.listener = listener;
-    }
+    let opt = Hoek.applyToDefaults(defaultOptions, userOptions);
 
-    unsubscribe () {
-        delete topic[this];
-    }
-}
-
-class Messaging {
-    constructor () {
-        // queues are shared
-        this.topics = topics;
-    }
-
-    subscribe (topic, listener) {
-        if (!this.topics[topic]) {
-            this.topics[topic] = {};
-        }
-
-        let sub = new Subscription(this.topics[topic]);
-        return this.topics[topic][sub] = sub;
-    }
-
-    publish (topic, data) {
-        let arr = [];
-        let subs = this.topics[topic];
-        Object.keys(subs).forEach((key) => {
-            subs[key].listener(data);
-        });
-    }
-}
-
-module.exports = Messaging;
+};

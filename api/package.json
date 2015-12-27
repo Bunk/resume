@@ -19,9 +19,12 @@
     "boom": "^3.0.0",
     "halacious": "^3.4.0",
     "hapi": "^11.1.2",
+    "hapi-config": "^0.2.0",
     "hapi-to": "^1.0.0",
+    "hoek": "^3.0.4",
     "jackrabbit": "^4.0.3",
     "joi": "^7.0.1",
+    "mongoose": "^4.3.4",
     "shortid": "^2.2.4"
   }
 }

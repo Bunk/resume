@@ -2,7 +2,7 @@
 
 const Shortid = require('shortid');
 const Boom = require('boom');
-const Data = require('../data');
+const Data = require('../../data');
 
 let db = new Data();
 

@@ -2,15 +2,22 @@
 
 const Hapi = require('hapi');
 const Package = require('./package.json');
+const Config = require('./config');
 
 let config = {
     port: 3000,
     plugins: [{
-        register: require('./resumes/routes')
+        register: require('./resources/resumes/routes'),
+        options: Config
     }, {
-        register: require('./conversions/routes')
+        register: require('./resources/conversions/routes'),
+        options: Config
     }, {
-        register: require('./formats/routes')
+        register: require('./resources/formats/routes'),
+        options: Config
+    }, {
+        register: require('./data/mongo'),
+        options: { uri: Config.mongoUrl }
     }, {
         register: require('hapi-to')
     }]
@@ -23,7 +30,7 @@ let server = new Hapi.Server({
 server.connection({
     port : config.port,
     routes: {
-        response: {emptyStatusCode: 204}
+        response: { emptyStatusCode: 204 }
     }
 });
 
