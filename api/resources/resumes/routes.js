@@ -1,5 +1,6 @@
 'use strict';
 
+const co = require('co');
 const Joi = require('joi');
 const Controller = require('./controller');
 
@@ -11,13 +12,14 @@ exports.register = function (server, options, next) {
     //      GET     - Representation of the resume in its original format
     //      PUT     - Replaces the given resume state
     //      DELETE  - Removes the given resume state
-    
+
     let controller = new Controller(options);
 
     let validations = {
-        id: Joi.string().regex(/^[a-zA-Z0-9_-]{7,14}$/),
-        markdown: Joi.string().required().min(1),
-        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
+        id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+        content: Joi.string().required().min(1),
+        contentFormat: Joi.string().valid(['md']).insensitive(),
+        outputFormat: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
     };
 
     server.route([{
@@ -25,7 +27,9 @@ exports.register = function (server, options, next) {
         path: '/resumes',
         config: {
             id: 'list',
-            handler: controller.list,
+            handler: {
+                async: co.wrap(controller.list)
+            },
             validate: {
                 query: Joi.object().keys({
                     start: Joi.number().min(0),
@@ -38,10 +42,13 @@ exports.register = function (server, options, next) {
         path: '/resumes',
         config: {
             id: 'create',
-            handler: controller.upload,
+            handler: {
+                async: co.wrap(controller.upload)
+            },
             validate: {
-                payload: Joi.object().length(1).keys({
-                    markdown: validations.markdown
+                payload: Joi.object().keys({
+                    content: validations.content,
+                    contentFormat: validations.contentFormat
                 })
             }
         }
@@ -56,7 +63,7 @@ exports.register = function (server, options, next) {
                     id: validations.id
                 },
                 query: Joi.object().keys({
-                    format: validations.format
+                    format: validations.outputFormat
                 })
             }
         }
@@ -65,13 +72,16 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}',
         config: {
             id: 'update',
-            handler: controller.update,
+            handler: {
+                async: co.wrap(controller.update)
+            },
             validate: {
                 params: {
                     id: validations.id
                 },
-                payload: Joi.object().length(1).keys({
-                    markdown: validations.markdown
+                payload: Joi.object().keys({
+                    content: validations.content,
+                    contentFormat: validations.contentFormat
                 })
             }
         }
@@ -80,7 +90,9 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}',
         config: {
             id: 'delete',
-            handler: controller.delete,
+            handler: {
+                async: co.wrap(controller.delete)
+            },
             validate: {
                 params: {
                     id: validations.id

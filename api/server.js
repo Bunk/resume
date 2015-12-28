@@ -7,6 +7,8 @@ const Config = require('./config');
 let config = {
     port: 3000,
     plugins: [{
+        register: require('hapi-async-handler')
+    }, {
         register: require('./resources/resumes/routes'),
         options: Config
     }, {

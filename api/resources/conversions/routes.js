@@ -1,5 +1,6 @@
 'use strict';
 
+const co = require('co');
 const Joi = require('joi');
 const JackRabbit = require('jackrabbit');
 const Mongoose = require('mongoose');
@@ -7,7 +8,7 @@ const Controller = require('./controller');
 
 exports.register = function (server, options, next) {
     let rabbit = JackRabbit(options.rabbitUrl);
-    let controller = new Controller(rabbit.default(), server.methods.mongoose());
+    let controller = new Controller(options, rabbit.default());
     server.bind(controller);
 
     // /conversions
@@ -17,7 +18,7 @@ exports.register = function (server, options, next) {
     //      DELETE  - Cancels the async conversion task
 
     let validations = {
-        id: Joi.string().regex(/^[a-zA-Z0-9_-]{7,14}$/),
+        id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
         format: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
     };
 
@@ -26,7 +27,9 @@ exports.register = function (server, options, next) {
         path: '/conversions',
         config: {
             id: 'convert',
-            handler: controller.start,
+            handler: {
+                async: co.wrap(controller.start)
+            },
             validate: {
                 payload: Joi.object().keys({
                     resumeId: validations.id.required(),

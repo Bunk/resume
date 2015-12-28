@@ -1,35 +1,24 @@
 'use strict';
 
 const Hoek = require('hoek');
-const MongooseConnector = require('./mongoose');
+const Mongoose = require('mongoose');
 
 const internals = {
     defaults: {
-        uri: 'mongodb://127.0.0.1:27017'
+        server: { uri: 'mongodb://127.0.0.1:27017' },
+        options: { }
     }
 };
 
 exports.register = (server, options, next) => {
-    const settings = Hoek.applyToDefaults(internals.defaults, options);
+    const settings  = Hoek.applyToDefaults(internals.defaults, options);
 
-    let connector = new MongooseConnector(settings, server);
-    let connection = connector.connection;
+    Mongoose.Promise = global.Promise;
+    Mongoose.connect(settings.uri, settings.options);
 
-    connector.on('ready', () => {
-        let getConnection = () => connection;
-        let getMongoose = () => connector.mongoose;
+    server.method('mongoose', () => Mongoose, {});
 
-        server.method('mongoose', getMongoose, {});
-        server.method('mongooseDb', getConnection, {});
-
-        console.log('server methods added');
-
-        next();
-    });
-
-    connector.on('error', err => {
-        next(err);
-    });
+    next();
 };
 
 exports.register.attributes = {

@@ -2,6 +2,10 @@
 
 const Shortid = require('shortid');
 const Boom = require('boom');
+const Models = require('../../data/models');
+const Resume = Models.Resume;
+const Template = Models.Template;
+const Conversion = Models.Conversion;
 
 const internals = {
     queue: {
@@ -12,32 +16,46 @@ const internals = {
 
 class ConversionController {
 
-    constructor (exchange, mongoose) {
+    constructor (config, exchange) {
         this.exchange = exchange;
         this.queue = exchange.queue({
             name: internals.queue.key,
             durable: true
         });
-        this.mongoose = mongoose;
     }
 
-    start (request, reply) {        
-        let id = Shortid.generate();
-        let msg = {
-            id,
-            resume: {
-                id: request.payload.resumeId,
-                format: 'md'
-            },
-            template: {
-                id: request.payload.templateId
-            },
-            format: request.payload.format
-        };
+    * start (request, reply) {
+        // Pull info from template and resume services
+        // TODO: Separate these API's into microservices for funsies
+        var resume = yield Resume.findById(request.payload.resumeId).lean().exec();
+        if (!resume) {
+            return reply(Boom.badData('Invalid resume identifier'));
+        }
 
-        this.exchange.publish(msg, internals.queue);
+        var template = yield Resume.findById(request.payload.templateId).lean().exec();
+        if (!template) {
+            return reply(Boom.badData('Invalid template identifier'));
+        }
 
-        return reply({ id });
+        let conversion = new Conversion({
+            resume: resume,
+            template: template,
+            outputFormat: request.payload.format
+        });
+        conversion.save((err, doc) => {
+            if (err) {
+                return reply(err);
+            }
+
+            this.exchange.publish({
+                id: conversion._id,
+                content: resume.content,
+                contentFormat: resume.format,
+                outputFormat: request.payload.format
+            }, internals.queue);
+
+            return reply({ doc });
+        });
     }
 
     abort (request, reply) {
