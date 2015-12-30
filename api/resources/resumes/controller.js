@@ -18,12 +18,17 @@ class ResumeController {
             .skip(start * limit)
             .limit(limit);
 
-        return reply(results.map(r => r.toClient()));
+        return reply({
+            start: start,
+            limit: limit,
+            count: results.length,
+            items: results
+        });
     }
 
     * view (request, reply) {
         let resume = yield Resume.findById(request.params.id);
-        return reply(resume.toClient());
+        return reply(resume);
     }
 
     * upload (request, reply) {

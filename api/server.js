@@ -22,6 +22,8 @@ let config = {
         options: { uri: Config.mongoUrl }
     }, {
         register: require('hapi-to')
+    }, {
+        register: require('halacious')
     }]
 };
 

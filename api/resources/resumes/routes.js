@@ -35,6 +35,16 @@ exports.register = function (server, options, next) {
                     start: Joi.number().min(0),
                     limit: Joi.number().min(1).max(20)
                 })
+            },
+            plugins: {
+                hal: {
+                    embedded: {
+                        items: {
+                            path: 'items',
+                            href: './{item.id}'
+                        }
+                    }
+                }
             }
         }
     }, {

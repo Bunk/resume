@@ -29,7 +29,7 @@ exports.register = function (server, options, next) {
         }
     }, {
         method: 'GET',
-        path: '/resumes/{id}/formats/{format}',
+        path: '/resumes/{id}/docs/{format}',
         config: {
             id: 'format',
             handler: {
@@ -44,7 +44,7 @@ exports.register = function (server, options, next) {
         }
     }, {
         method: 'PUT',
-        path: '/resumes/{id}/formats/{format}',
+        path: '/resumes/{id}/docs/{format}',
         config: {
             id: 'updateFormat',
             handler: {
@@ -53,7 +53,7 @@ exports.register = function (server, options, next) {
         }
     }, {
         method: 'DELETE',
-        path: '/resumes/{id}/formats/{format}',
+        path: '/resumes/{id}/docs/{format}',
         config: {
             id: 'removeFormat',
             handler: {

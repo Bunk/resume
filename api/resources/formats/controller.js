@@ -21,7 +21,7 @@ class FormatsController {
     }
 
     * view (request, reply) {
-        let format = request.params.format.toLowerCase();
+        const format = request.params.format.toLowerCase();
 
         // TODO: Create a mongo index for this lookup
         let resume = yield Resume.findById(request.params.id);
@@ -39,11 +39,21 @@ class FormatsController {
             return reply(Boom.notFound());
         }
 
-        // TODO: Depending on the content-negotiation, send back the appropriate data
-        reply(doc.toClient());
+        switch (format) {
+            case 'md':
+                return reply(doc.content).type('text/markdown');
+            case 'html':
+                return reply(doc.content).type('text/html');
+            case 'pdf':
+                return reply(doc.content).type('application/pdf');
+            default:
+                return reply(doc);
+        }
     }
 
     * update (request, reply) {
+        // TODO: Implement this to update the document contents for a given format
+        //       creating the resource if necessary.  Remember to be idempotent.
         reply();
     }
 

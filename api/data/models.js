@@ -38,21 +38,54 @@ const internals = {
         updatedAt       : { type: Date, default: Date.now }
     }),
 
-    toClient: function () {
-        let obj = this.toObject();
+    init : function () {
+        let cleanMongoFields = (doc, ret, options) => {
+            ret.id = ret._id;
+            delete ret._id;
+            delete ret.__v;
+        };
+        // Resume
+        internals.resumeSchema.set('toJSON', { transform: cleanMongoFields });
+        internals.resumeSchema.methods = {
+            toHal: function (rep, next) {
+                if (rep.entity.formats.md) {
+                    link('documents', './docs/md', 'md', 'text/markdown');
+                }
+                if (rep.entity.formats.html) {
+                    link('documents', './docs/html', 'html', 'text/html');
+                }
+                if (rep.entity.formats.pdf) {
+                    link('documents', './docs/pdf', 'pdf', 'application/pdf');
+                }
+                next();
 
-        obj.id = obj._id;
-        delete obj._id;
-        delete obj.__v;
+                function link (rel, uri, name, mime) {
+                    let link = rep.link(rel, uri);
+                    link.name = name;
+                    link.type = mime;
+                }
+            }
+        };
 
-        return obj;
+        // Document
+        internals.documentSchema.set('toJSON', { transform: cleanMongoFields });
+        internals.documentSchema.methods = {
+            toHal: function (rep, next) {
+                next();
+            }
+        };
+
+        // Conversion Task
+        internals.conversionSchema.set('toJSON', { transform: cleanMongoFields });
+        internals.conversionSchema.methods = {
+            toHal: function (rep, next) {
+                next();
+            }
+        };
     }
 };
 
-internals.documentSchema.methods.toClient = internals.toClient;
-internals.resumeSchema.methods.toClient = internals.toClient;
-internals.templateSchema.methods.toClient = internals.toClient;
-internals.conversionSchema.methods.toClient = internals.toClient;
+internals.init();
 
 module.exports = {
     Document    : Mongoose.model('documents', internals.documentSchema),
