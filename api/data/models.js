@@ -14,8 +14,9 @@ const internals = {
         updatedAt       : { type: Date, default: Date.now }
     }),
     documentSchema: new Schema({
+        resumeId        : { type: Schema.Types.ObjectId, index: true },
         content         : { type: Buffer, required: true },
-        format          : { type: String, required: true },
+        format          : { type: String, required: true, index: true },
         encoding        : { type: String, required: true },
         createdAt       : { type: Date, default: Date.now },
         updatedAt       : { type: Date, default: Date.now }

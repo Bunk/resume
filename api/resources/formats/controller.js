@@ -23,20 +23,9 @@ class FormatsController {
     * view (request, reply) {
         const format = request.params.format.toLowerCase();
 
-        // TODO: Create a mongo index for this lookup
-        let resume = yield Resume.findById(request.params.id);
-        if (!resume) {
-            return reply(Boom.notFound('The resume could not be found'));
-        }
-
-        let docId = resume.formats[format];
-        if (!docId) {
-            return reply(Boom.notFound('The resume has not been converted to that format'));
-        }
-
-        let doc = yield Document.findById(docId);
+        let doc = yield Document.findOne({ 'resumeId': request.params.id, 'format': format });
         if (!doc) {
-            return reply(Boom.notFound());
+            return reply(Boom.notFound('The document could not be found'));
         }
 
         switch (format) {

@@ -45,19 +45,17 @@ class ResumeController {
             return Buffer.concat(bufs);
         }());
 
+        let resume = yield Resume.create({ formats: {} });
         let doc = yield Document.create({
+            resumeId: resume._id,
             content: content,
             encoding: 'utf8',
             format: request.payload.format.toLowerCase()
         });
+        resume.formats.md = doc._id;
+        resume = yield resume.save();
 
-        let resume = yield Resume.create({
-            formats: {
-                md: doc._id
-            }
-        });
-
-        return reply(resume.toClient())
+        return reply(resume)
             .created(request.to('read', { params: { id: resume.id } }));
     }
 

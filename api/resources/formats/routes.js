@@ -20,7 +20,7 @@ exports.register = function (server, options, next) {
 
     server.route([{
         method: 'GET',
-        path: '/resumes/{id}/formats',
+        path: '/resumes/{id}/docs',
         config: {
             id: 'availableFormats',
             handler: {
