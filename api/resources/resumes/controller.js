@@ -43,7 +43,7 @@ class ResumeController {
         let doc = yield Document.create({
             content: content,
             encoding: 'utf8',
-            format: request.payload.format
+            format: request.payload.format.toLowerCase()
         });
 
         let resume = yield Resume.create({
@@ -54,20 +54,6 @@ class ResumeController {
 
         return reply(resume.toClient())
             .created(request.to('read', { params: { id: resume.id } }));
-    }
-
-    * create (request, reply) {
-        // TODO: Handle file uploads
-        var resume;
-
-        try {
-            request.payload.formats = [request.payload.contentFormat];
-            resume = yield Resume.create(request.payload);
-        } catch (e) {
-            return reply(Boom.badRequest(e.message));
-        }
-
-        reply(resume.toClient()).created(request.to('read', { params: { id: resume.id } }));
     }
 
     * update (request, reply) {

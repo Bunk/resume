@@ -53,7 +53,7 @@ exports.register = function (server, options, next) {
             validate: {
                 payload: Joi.object().keys({
                     file: Joi.any().required(),
-                    format: validations.contentFormat
+                    format: validations.contentFormat.required()
                 })
             }
         }
