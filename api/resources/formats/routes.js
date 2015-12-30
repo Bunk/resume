@@ -1,6 +1,8 @@
 'use strict';
 
+const co = require('co');
 const Joi = require('joi');
+const Controller = require('./controller');
 
 exports.register = function (server, options, next) {
 
@@ -10,13 +12,19 @@ exports.register = function (server, options, next) {
     //      GET     - Representation of the resume in the given format
     //      PUT     - Updates the formatted document for the resume
 
+    let controller = new Controller(options);
+    let validations = {
+        id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
+        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
+    };
+
     server.route([{
         method: 'GET',
         path: '/resumes/{id}/formats',
         config: {
             id: 'availableFormats',
-            handler: (request, reply) => {
-                reply();
+            handler: {
+                async: co.wrap(controller.list)
             }
         }
     }, {
@@ -24,8 +32,14 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}/formats/{format}',
         config: {
             id: 'format',
-            handler: (request, reply) => {
-                reply();
+            handler: {
+                async: co.wrap(controller.view)
+            },
+            validate: {
+                params: {
+                    id: validations.id,
+                    format: validations.format
+                }
             }
         }
     }, {
@@ -33,8 +47,17 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}/formats/{format}',
         config: {
             id: 'updateFormat',
-            handler: (request, reply) => {
-                reply();
+            handler: {
+                async: co.wrap(controller.update)
+            }
+        }
+    }, {
+        method: 'DELETE',
+        path: '/resumes/{id}/formats/{format}',
+        config: {
+            id: 'removeFormat',
+            handler: {
+                async: co.wrap(controller.remove)
             }
         }
     }]);

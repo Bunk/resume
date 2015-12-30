@@ -45,10 +45,15 @@ exports.register = function (server, options, next) {
             handler: {
                 async: co.wrap(controller.upload)
             },
+            payload: {
+                output: 'stream',
+                parse: true,
+                allow: 'multipart/form-data'
+            },
             validate: {
                 payload: Joi.object().keys({
-                    content: validations.content,
-                    contentFormat: validations.contentFormat
+                    file: Joi.any().required(),
+                    format: validations.contentFormat
                 })
             }
         }
@@ -57,14 +62,13 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}',
         config: {
             id: 'read',
-            handler: controller.view,
+            handler: {
+                async: co.wrap(controller.view)
+            },
             validate: {
                 params: {
                     id: validations.id
-                },
-                query: Joi.object().keys({
-                    format: validations.outputFormat
-                })
+                }
             }
         }
     }, {

@@ -1,6 +1,5 @@
 'use strict';
 
-const Shortid = require('shortid');
 const Boom = require('boom');
 const Models = require('../../data/models');
 const Resume = Models.Resume;

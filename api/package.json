@@ -18,6 +18,7 @@
   "dependencies": {
     "boom": "^3.0.0",
     "co": "^4.6.0",
+    "co-read": "^0.1.1",
     "halacious": "^3.4.0",
     "hapi": "^11.1.2",
     "hapi-async-handler": "^1.0.3",

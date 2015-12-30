@@ -5,9 +5,18 @@ const Schema        = Mongoose.Schema;
 
 const internals = {
     resumeSchema: new Schema({
-        content         : { type: String, required: true },
-        contentFormat   : { type: String, required: true, trim: true },
-        formats         : [ String ],
+        formats         : {
+            md              : { type: Schema.Types.ObjectId },
+            pdf             : { type: Schema.Types.ObjectId },
+            html            : { type: Schema.Types.ObjectId }
+        },
+        createdAt       : { type: Date, default: Date.now },
+        updatedAt       : { type: Date, default: Date.now }
+    }),
+    documentSchema: new Schema({
+        content         : { type: Buffer, required: true },
+        format          : { type: String, required: true },
+        encoding        : { type: String, required: true },
         createdAt       : { type: Date, default: Date.now },
         updatedAt       : { type: Date, default: Date.now }
     }),
@@ -40,11 +49,13 @@ const internals = {
     }
 };
 
+internals.documentSchema.methods.toClient = internals.toClient;
 internals.resumeSchema.methods.toClient = internals.toClient;
 internals.templateSchema.methods.toClient = internals.toClient;
 internals.conversionSchema.methods.toClient = internals.toClient;
 
 module.exports = {
+    Document    : Mongoose.model('documents', internals.documentSchema),
     Resume      : Mongoose.model('resume', internals.resumeSchema),
     Template    : Mongoose.model('template', internals.templateSchema),
     Conversion  : Mongoose.model('conversion', internals.conversionSchema)
