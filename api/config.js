@@ -1,8 +1,24 @@
 module.exports = {
+    // Server
+    port        : process.env.API_PORT || 3000,
+
     // Services
     rabbitUrl   : process.env.RABBIT_URL || 'amqp://admin:password@docker',
     mongoUrl    : process.env.MONGO_URL || 'mongodb://admin:password@docker',
 
     resumesUrl   : process.env.API_RESUMES_URL || 'http://docker:3000/resumes',
-    templatesUrl : process.env.API_TEMPLATES_URL || 'http://docker:3000/templates'
+    templatesUrl : process.env.API_TEMPLATES_URL || 'http://docker:3000/templates',
+
+    // Session
+    session: {
+        password    : process.env.SESSION_SALT || 'secret_cookie_encryption_password'
+    },
+
+    // OAuth
+    oauth: {
+        google: {
+            clientId        : process.env.OAUTH_GOOGLE_CLIENTID || '',
+            clientSecret    : process.env.OAUTH_GOOGLE_CLIENTSECRET || ''
+        }
+    }
 };

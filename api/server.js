@@ -1,51 +1,49 @@
 'use strict';
 
 const Hapi = require('hapi');
+const Boom = require('boom');
 const Package = require('./package.json');
 const Config = require('./config');
 
-let config = {
-    port: 3000,
-    plugins: [{
-        register: require('hapi-async-handler')
-    }, {
-        register: require('./resources/resumes/routes'),
-        options: Config
-    }, {
-        register: require('./resources/conversions/routes'),
-        options: Config
-    }, {
-        register: require('./resources/formats/routes'),
-        options: Config
-    }, {
-        register: require('./data/mongo'),
-        options: { uri: Config.mongoUrl }
-    }, {
-        register: require('hapi-to')
-    }, {
-        register: require('halacious')
-    }]
-};
+let plugins = [
+    require('hapi-async-handler'),
+    require('hapi-to'),
+    require('hapi-auth-cookie'),
+    require('bell'),
+    require('halacious'),
+{
+    register: require('./data/mongo'),
+    options: { uri: Config.mongoUrl }
+}, {
+    register: require('./auth'),
+    options: Config
+}, {
+    register: require('./resources/resumes'),
+    options: Config
+}, {
+    register: require('./resources/conversions'),
+    options: Config
+}, {
+    register: require('./resources/formats'),
+    options: Config
+}];
 
-let server = new Hapi.Server({
-    debug: {request: ['info', 'error']}
-});
-
+let server = new Hapi.Server({ debug: {request: ['info', 'error']} });
 server.connection({
-    port : config.port,
+    port : Config.port,
     routes: {
         response: { emptyStatusCode: 204 }
     }
 });
 
-server.register(config.plugins, (err) => {
+server.register(plugins, (err) => {
+
     if (err) { throw err; }
 
-    if (!module.parent) {
-        server.start((err) => {
-            if (err) { throw err; }
+    server.start((err) => {
 
-            server.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
-        });
-    }
+        if (err) { throw err; }
+
+        server.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
+    });
 });

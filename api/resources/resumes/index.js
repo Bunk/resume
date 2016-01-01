@@ -27,6 +27,7 @@ exports.register = function (server, options, next) {
         path: '/resumes',
         config: {
             id: 'list',
+            auth: 'session',
             handler: {
                 async: co.wrap(controller.list)
             },
