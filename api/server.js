@@ -12,6 +12,16 @@ let plugins = [
     require('bell'),
     require('halacious'),
 {
+    register: require('good'),
+    options: {
+        opsInterval: 1000,
+        reporters: [{
+            reporter: require('good-console'),
+            events: { log: '*', response: '*' }
+        }]
+    }
+},
+{
     register: require('./data/mongo'),
     options: { uri: Config.mongoUrl }
 }, {
@@ -44,6 +54,6 @@ server.register(plugins, (err) => {
 
         if (err) { throw err; }
 
-        console.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
+        server.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
     });
 });

@@ -23,6 +23,7 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}/docs',
         config: {
             id: 'availableFormats',
+            auth: false,
             handler: {
                 async: co.wrap(controller.list)
             }
@@ -32,6 +33,7 @@ exports.register = function (server, options, next) {
         path: '/resumes/{id}/docs/{format}',
         config: {
             id: 'format',
+            auth: false,
             handler: {
                 async: co.wrap(controller.view)
             },

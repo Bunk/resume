@@ -20,6 +20,8 @@
     "boom": "^3.0.0",
     "co": "^4.6.0",
     "co-read": "^0.1.1",
+    "good": "^6.4.0",
+    "good-console": "^5.2.0",
     "halacious": "^3.4.0",
     "hapi": "^11.1.2",
     "hapi-async-handler": "^1.0.3",

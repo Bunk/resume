@@ -52,7 +52,7 @@ class FormatsController {
             return reply(Boom.badData('The original markdown format may not be removed'));
         }
 
-        let resume = yield Resume.findById(request.params.id);
+        let resume = yield Resume.find({ _id: request.params.id, userId: request.auth.credentials.sub });
         if (!resume) {
             return reply(Boom.notFound('The resume could not be found'));
         }
