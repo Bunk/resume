@@ -33,3 +33,6 @@ node_modules
 # Output
 build
 dist
+
+# Secrets
+env.sh
