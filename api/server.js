@@ -44,6 +44,6 @@ server.register(plugins, (err) => {
 
         if (err) { throw err; }
 
-        server.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
+        console.log('info', `Running [${Package.name}] at [${server.info.uri}]`);
     });
 });

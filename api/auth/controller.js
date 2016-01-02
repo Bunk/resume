@@ -39,11 +39,16 @@ class AuthController {
                 email: profile.emails[0].value
             }
         };
-
         let token = JWT.sign(session, this.jwtSecret);
+
+        // TODO: Create / merge a local user with the Google data
 
         return reply({ token: token })
             .header('Authorization', `Bearer ${token}`);
+    }
+
+    * getProfile (request, reply) {
+        return reply(request.auth.credentials.profile);
     }
 }
 

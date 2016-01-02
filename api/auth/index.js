@@ -8,7 +8,7 @@ exports.register = function (server, options, next) {
     let controller = new AuthController(options);
     server.bind(controller);
 
-    // Setup the Google login strategy
+    // Google OAuth login
     server.auth.strategy('google', 'bell', {
         provider: 'google',
         password: options.session.password,
@@ -16,16 +16,15 @@ exports.register = function (server, options, next) {
         clientSecret: options.oauth.google.clientSecret,
         isSecure: false //Should be set to true (which is the default) in production
     });
-
     // Main bearer token implementation
-    server.auth.strategy('bearer', 'jwt', {
+    server.auth.strategy('jwt', 'jwt', {
         key: options.jwt.secret,
-        validateFunc: controller.validateToken,
+        validateFunc: co.wrap(controller.validateToken),
         verifyOptions: {
             algorithms: [ 'HS256' ]
         }
     });
-    server.auth.default('bearer');
+    server.auth.default('jwt');
 
     server.route({
         method: 'GET',
@@ -42,8 +41,8 @@ exports.register = function (server, options, next) {
         method: 'GET',
         path: '/profiles/me',
         config: {
-            handler: (request, reply) => {
-                return reply(request.auth.credentials.profile);
+            handler: {
+                async: co.wrap(controller.getProfile)
             }
         }
     });

@@ -5,6 +5,7 @@ const Schema        = Mongoose.Schema;
 
 const internals = {
     resumeSchema: new Schema({
+        userId          : { type: String, required: true },
         formats         : {
             md              : { type: Schema.Types.ObjectId },
             pdf             : { type: Schema.Types.ObjectId },
