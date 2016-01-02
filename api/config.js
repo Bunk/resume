@@ -9,12 +9,13 @@ module.exports = {
     resumesUrl   : process.env.API_RESUMES_URL || 'http://docker:3000/resumes',
     templatesUrl : process.env.API_TEMPLATES_URL || 'http://docker:3000/templates',
 
-    // Session
-    session: {
-        password    : process.env.SESSION_SALT || 'secret_cookie_encryption_password'
+    // Security
+    jwt: {
+        secret      : process.env.JWT_SECRET || 'secret'
     },
-
-    // OAuth
+    session: {
+        password    : process.env.SESSION_SALT || 'secret'
+    },
     oauth: {
         google: {
             clientId        : process.env.OAUTH_GOOGLE_CLIENTID || '',

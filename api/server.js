@@ -9,6 +9,7 @@ let plugins = [
     require('hapi-async-handler'),
     require('hapi-to'),
     require('hapi-auth-cookie'),
+    require('hapi-auth-jwt2'),
     require('bell'),
     require('halacious'),
 {
