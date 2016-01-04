@@ -7,15 +7,15 @@ const internals = {
     resumeSchema: new Schema({
         userId          : { type: String, required: true, index: true },
         formats         : {
-            md              : { type: Schema.Types.ObjectId },
-            pdf             : { type: Schema.Types.ObjectId },
-            html            : { type: Schema.Types.ObjectId }
+            md              : { type: Schema.Types.ObjectId, ref: 'documents' },
+            pdf             : { type: Schema.Types.ObjectId, ref: 'documents' },
+            html            : { type: Schema.Types.ObjectId, ref: 'documents' }
         },
         createdAt       : { type: Date, default: Date.now },
         updatedAt       : { type: Date, default: Date.now }
     }),
     documentSchema: new Schema({
-        resumeId        : { type: Schema.Types.ObjectId, index: true },
+        resumeId        : { type: Schema.Types.ObjectId, required: true, index: true },
         content         : { type: Buffer, required: true },
         format          : { type: String, required: true, index: true },
         encoding        : { type: String, required: true },
@@ -26,15 +26,12 @@ const internals = {
 
     }),
     conversionSchema: new Schema({
+        _owner          : { type: String, required: true },
+        resume          : { type: Schema.Types.ObjectId, required: true, index: true, ref: 'resumes' },
+        //documentId      : { type: Schema.Types.ObjectId, required: true, index: true },
+        //templateId      : { type: Schema.Types.ObjectId, required: true },
+        inputFormat     : { type: String, required: true },
         outputFormat    : { type: String, required: true },
-        resume          : {
-            id          : { type: String, required: true },
-            content     : { type: String, required: true },
-            format      : { type: String, required: true, trim: true }
-        },
-        template        : {
-            id          : { type: String, required: true }
-        },
         status          : { type: String, default: 'requested' },
         createdAt       : { type: Date, default: Date.now },
         updatedAt       : { type: Date, default: Date.now }

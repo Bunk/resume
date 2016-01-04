@@ -19,7 +19,8 @@ exports.register = function (server, options, next) {
 
     let validations = {
         id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
-        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
+        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive(),
+        status: Joi.string().valid(['requested', 'running', 'aborted', 'complete']).insensitive()
     };
 
     server.route([{
@@ -33,7 +34,7 @@ exports.register = function (server, options, next) {
             validate: {
                 payload: Joi.object().keys({
                     resumeId: validations.id.required(),
-                    templateId: validations.id,
+                    //templateId: validations.id,
                     format: validations.format.required()
                 })
             }
@@ -43,7 +44,9 @@ exports.register = function (server, options, next) {
         path: '/conversions/{id}',
         config: {
             id: 'conversion',
-            handler: controller.view,
+            handler: {
+                async: co.wrap(controller.view)
+            },
             validate: {
                 params: {
                     id: validations.id
@@ -51,11 +54,32 @@ exports.register = function (server, options, next) {
             }
         }
     }, {
+        method: 'PUT',
+        path: '/conversions/{id}',
+        config: {
+            handler: {
+                async: co.wrap(controller.update)
+            },
+            validate: {
+                params: {
+                    id: validations.id
+                },
+                payload: Joi.object().keys({
+                    id: validations.id,
+                    resume: validations.id,
+                    inputFormat: validations.format.required(),
+                    outputFormat: validations.format.required(),
+                    status: validations.status.required()
+                })
+            }
+        }
+    }, {
         method: 'DELETE',
         path: '/conversions/{id}',
         config: {
-            id: 'cancelConvert',
-            handler: controller.abort,
+            handler: {
+                async: co.wrap(controller.abort)
+            },
             validate: {
                 params: {
                     id: validations.id

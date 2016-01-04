@@ -1,0 +1,20 @@
+{
+  "name": "resume-converter",
+  "version": "0.0.1",
+  "description": "Worker process which will handle conversion tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node_modules/.bin/node-dev index.js"
+  },
+  "author": "JD Courtoy",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-read": "^0.1.1",
+    "jackrabbit": "^4.0.3",
+    "node-dev": "^2.7.1",
+    "wreck": "^7.0.0"
+  }
+}
