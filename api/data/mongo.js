@@ -1,7 +1,7 @@
 'use strict';
 
-const Hoek = require('hoek');
-const Mongoose = require('mongoose');
+const Hoek = require( 'hoek' );
+const Mongoose = require( 'mongoose' );
 
 const internals = {
     defaults: {
@@ -10,13 +10,13 @@ const internals = {
     }
 };
 
-exports.register = (server, options, next) => {
-    const settings  = Hoek.applyToDefaults(internals.defaults, options);
+exports.register = ( server, options, next ) => {
+    const settings = Hoek.applyToDefaults( internals.defaults, options );
 
     Mongoose.Promise = global.Promise;
-    Mongoose.connect(settings.uri, settings.options);
+    Mongoose.connect( settings.uri, settings.options );
 
-    server.method('mongoose', () => Mongoose, {});
+    server.method( 'mongoose', () => Mongoose, {} );
 
     next();
 };

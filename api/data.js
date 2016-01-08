@@ -1,31 +1,31 @@
 'use strict';
 
-const shortid = require('shortid');
+const shortid = require( 'shortid' );
 
 class Repository {
 
-    constructor (data) {
+    constructor( data ) {
         this.data = data || {};
     }
 
-    all () {
+    all() {
         let arr = [];
-        Object.keys(this.data).forEach((key) => {
-            arr.push(this.data[key]);
-        });
+        Object.keys( this.data ).forEach( ( key ) => {
+            arr.push( this.data[key] );
+        } );
         return arr;
     }
 
-    get (id) {
+    get( id ) {
         return this.data[id];
     }
 
-    add (entity, key) {
+    add( entity, key ) {
         entity.id = entity.id || shortid.generate();
         return this.data[key || entity.id] = entity;
     }
 
-    remove (id) {
+    remove( id ) {
         delete this.data[id];
     }
 

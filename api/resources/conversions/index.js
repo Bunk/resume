@@ -1,15 +1,15 @@
 'use strict';
 
-const co = require('co');
-const Joi = require('joi');
-const JackRabbit = require('jackrabbit');
-const Mongoose = require('mongoose');
-const Controller = require('./controller');
+const co = require( 'co' );
+const Joi = require( 'joi' );
+const JackRabbit = require( 'jackrabbit' );
+const Mongoose = require( 'mongoose' );
+const Controller = require( './controller' );
 
-exports.register = function (server, options, next) {
-    let rabbit = JackRabbit(options.rabbitUrl);
-    let controller = new Controller(options, rabbit.default());
-    server.bind(controller);
+exports.register = function( server, options, next ) {
+    let rabbit = JackRabbit( options.rabbitUrl );
+    let controller = new Controller( options, rabbit.default() );
+    server.bind( controller );
 
     // /conversions
     //      POST    - Create a new translation task for a given resume
@@ -18,25 +18,25 @@ exports.register = function (server, options, next) {
     //      DELETE  - Cancels the async conversion task
 
     let validations = {
-        id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
-        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive(),
-        status: Joi.string().valid(['requested', 'running', 'aborted', 'complete']).insensitive()
+        id: Joi.string().regex( /^[0-9a-fA-F]{24}$/ ),
+        format: Joi.string().valid( [ 'html', 'pdf', 'md' ] ).insensitive(),
+        status: Joi.string().valid( [ 'requested', 'running', 'aborted', 'complete' ] ).insensitive()
     };
 
-    server.route([{
+    server.route( [ {
         method: 'POST',
         path: '/conversions',
         config: {
             id: 'convert',
             handler: {
-                async: co.wrap(controller.start)
+                async: co.wrap( controller.start )
             },
             validate: {
-                payload: Joi.object().keys({
+                payload: Joi.object().keys( {
                     resumeId: validations.id.required(),
                     //templateId: validations.id,
                     format: validations.format.required()
-                })
+                } )
             }
         }
     }, {
@@ -45,7 +45,7 @@ exports.register = function (server, options, next) {
         config: {
             id: 'conversion',
             handler: {
-                async: co.wrap(controller.view)
+                async: co.wrap( controller.view )
             },
             validate: {
                 params: {
@@ -58,19 +58,19 @@ exports.register = function (server, options, next) {
         path: '/conversions/{id}',
         config: {
             handler: {
-                async: co.wrap(controller.update)
+                async: co.wrap( controller.update )
             },
             validate: {
                 params: {
                     id: validations.id
                 },
-                payload: Joi.object().keys({
+                payload: Joi.object().keys( {
                     id: validations.id,
                     resume: validations.id,
                     inputFormat: validations.format.required(),
                     outputFormat: validations.format.required(),
                     status: validations.status.required()
-                })
+                } )
             }
         }
     }, {
@@ -78,7 +78,7 @@ exports.register = function (server, options, next) {
         path: '/conversions/{id}',
         config: {
             handler: {
-                async: co.wrap(controller.abort)
+                async: co.wrap( controller.abort )
             },
             validate: {
                 params: {
@@ -86,7 +86,7 @@ exports.register = function (server, options, next) {
                 }
             }
         }
-    }]);
+    } ] );
 
     next();
 };
