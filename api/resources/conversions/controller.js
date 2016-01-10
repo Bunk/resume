@@ -1,8 +1,8 @@
 'use strict';
 
-const co = require('co');
-const Boom = require('boom');
-const Models = require('../../data/models');
+const co = require( 'co' );
+const Boom = require( 'boom' );
+const Models = require( '../../data/models' );
 const Resume = Models.Resume;
 const Template = Models.Template;
 const Conversion = Models.Conversion;
@@ -13,12 +13,12 @@ const internals = {
         key: 'conversion_queue',
         persistent: true
     },
-    getConversionQuery: (request) => {
+    getConversionQuery: ( request ) => {
         let conversionId = request.params.id;
         let claims = request.auth.credentials.scopes.conversions;
 
         let query = { _id: conversionId };
-        if (!claims.system) {
+        if ( !claims.system ) {
             query._owner = request.auth.credentials.sub;
         }
 
@@ -28,21 +28,21 @@ const internals = {
 
 class ConversionController {
 
-    constructor (config, exchange) {
+    constructor( config, exchange ) {
         this.exchange = exchange;
-        this.queue = exchange.queue({
+        this.queue = exchange.queue( {
             name: internals.queue.key,
             durable: true
-        });
+        } );
     }
 
-    * view (request, reply) {
-        let query = internals.getConversionQuery(request);
-        let conversion = yield Conversion.findOne(query);
-        return reply(conversion);
+    * view( request, reply ) {
+        let query = internals.getConversionQuery( request );
+        let conversion = yield Conversion.findOne( query );
+        return reply( conversion );
     }
 
-    * start (request, reply) {
+    * start( request, reply ) {
         let resumeId = request.payload.resumeId;
         let userId = request.auth.credentials.sub;
         let inputFormat = 'md';
@@ -50,27 +50,27 @@ class ConversionController {
 
         // Pull the existing resume resource
         let query = { _id: resumeId, userId: request.auth.credentials.sub };
-        let resume = yield Resume.findOne(query).populate(`formats.${inputFormat}`);
-        if (!resume || !resume.formats[inputFormat]) {
-            return reply(Boom.badData('Invalid resume'));
+        let resume = yield Resume.findOne( query ).populate( `formats.${inputFormat}` );
+        if ( !resume || !resume.formats[inputFormat] ) {
+            return reply( Boom.badData( 'Invalid resume' ) );
         }
 
         // Return a validation error if a conversion is already in progress for this document
-        let conversion = yield Conversion.findOne({ resumeId, outputFormat });
-        if (conversion) {
-            return reply(Boom.badData('A conversion is already in progress'));
+        let conversion = yield Conversion.findOne( { resumeId, outputFormat } );
+        if ( conversion ) {
+            return reply( Boom.badData( 'A conversion is already in progress' ) );
         }
 
         let doc = resume.formats[inputFormat];
         let documentId = doc.id;
-        conversion = yield new Conversion({
+        conversion = yield new Conversion( {
             _owner: userId,
             resume: resumeId,
             inputFormat,
             outputFormat
-        }).save();
+        } ).save();
 
-        this.exchange.publish({
+        this.exchange.publish( {
             conversion: {
                 id: conversion.id,
                 resume: conversion.resume,
@@ -82,24 +82,24 @@ class ConversionController {
                 content: doc.content,
                 encoding: doc.encoding
             }
-        }, { key: internals.queue.key });
+        }, { key: internals.queue.key } );
 
-        return reply(conversion)
-            .created(request.to('conversion', { params: { id: conversion.id } }));
+        return reply( conversion )
+            .created( request.to( 'conversion', { params: { id: conversion.id } } ) );
     }
 
-    * update (request, reply) {
+    * update( request, reply ) {
         // TODO: Allow changing of more than status here
-        let query = internals.getConversionQuery(request);
-        let conversion = yield Conversion.findOne(query);
+        let query = internals.getConversionQuery( request );
+        let conversion = yield Conversion.findOne( query );
         conversion.status = request.payload.status;
         conversion = yield conversion.save();
-        reply(conversion);
+        reply( conversion );
     }
 
-    * abort (request, reply) {
-        let query = internals.getConversionQuery(request);
-        yield Conversion.remove(query);
+    * abort( request, reply ) {
+        let query = internals.getConversionQuery( request );
+        yield Conversion.remove( query );
         return reply();
     }
 };

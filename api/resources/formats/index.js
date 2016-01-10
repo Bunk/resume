@@ -1,10 +1,10 @@
 'use strict';
 
-const co = require('co');
-const Joi = require('joi');
-const Controller = require('./controller');
+const co = require( 'co' );
+const Joi = require( 'joi' );
+const Controller = require( './controller' );
 
-exports.register = function (server, options, next) {
+exports.register = function( server, options, next ) {
 
     // /resumes/{id}/formats
     //      GET     - Collection of all available formats for the resume
@@ -12,20 +12,22 @@ exports.register = function (server, options, next) {
     //      GET     - Representation of the resume in the given format
     //      PUT     - Updates the formatted document for the resume
 
-    let controller = new Controller(options);
+    let controller = new Controller( options );
     let validations = {
-        id: Joi.string().regex(/^[0-9a-fA-F]{24}$/),
-        format: Joi.string().valid(['html', 'pdf', 'md']).insensitive()
+        id: Joi.string().regex( /^[0-9a-fA-F]{24}$/ ),
+        format: Joi.string().valid( [ 'html', 'pdf', 'md' ] ).insensitive(),
+        content: Joi.any(),
+        encoding: Joi.string()
     };
 
-    server.route([{
+    server.route( [ {
         method: 'GET',
         path: '/resumes/{id}/docs',
         config: {
             id: 'availableFormats',
             auth: false,
             handler: {
-                async: co.wrap(controller.list)
+                async: co.wrap( controller.list )
             }
         }
     }, {
@@ -35,7 +37,7 @@ exports.register = function (server, options, next) {
             id: 'format',
             auth: false,
             handler: {
-                async: co.wrap(controller.view)
+                async: co.wrap( controller.view )
             },
             validate: {
                 params: {
@@ -50,7 +52,22 @@ exports.register = function (server, options, next) {
         config: {
             id: 'updateFormat',
             handler: {
-                async: co.wrap(controller.update)
+                async: co.wrap( controller.update )
+            },
+            payload: {
+                output: 'stream',
+                parse: true,
+                allow: 'multipart/form-data'
+            },
+            validate: {
+                params: {
+                    id: validations.id,
+                    format: validations.format
+                },
+                payload: {
+                    content: validations.content,
+                    encoding: validations.encoding
+                }
             }
         }
     }, {
@@ -59,10 +76,10 @@ exports.register = function (server, options, next) {
         config: {
             id: 'removeFormat',
             handler: {
-                async: co.wrap(controller.remove)
+                async: co.wrap( controller.remove )
             }
         }
-    }]);
+    } ] );
 
     next();
 };

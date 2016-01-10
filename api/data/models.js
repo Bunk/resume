@@ -1,6 +1,6 @@
 'use strict';
 
-const Mongoose      = require('mongoose');
+const Mongoose      = require( 'mongoose' );
 const Schema        = Mongoose.Schema;
 
 const internals = {
@@ -67,7 +67,10 @@ const internals = {
         };
 
         // Document
-        internals.documentSchema.set('toJSON', { transform: cleanMongoFields });
+        internals.documentSchema.set('toJSON', { transform: (doc, ret, options) => {
+            cleanMongoFields( doc, ret, options );
+            delete ret.content;
+        } });
         internals.documentSchema.methods = {
             toHal: function (rep, next) {
                 next();

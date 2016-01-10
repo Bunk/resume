@@ -20,7 +20,7 @@ exports.register = function( server, options, next ) {
     let validations = {
         id: Joi.string().regex( /^[0-9a-fA-F]{24}$/ ),
         format: Joi.string().valid( [ 'html', 'pdf', 'md' ] ).insensitive(),
-        status: Joi.string().valid( [ 'requested', 'running', 'aborted', 'complete' ] ).insensitive()
+        status: Joi.string().valid( [ 'requested', 'running', 'aborted', 'error', 'complete' ] ).insensitive()
     };
 
     server.route( [ {

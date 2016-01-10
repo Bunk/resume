@@ -1,8 +1,10 @@
 'use strict';
 
 const JackRabbit = require( 'jackrabbit' );
-const Wreck = require( 'wreck' );
+const PDC = require( 'pdc' );
 const Config = require( './config' );
+const Conversions = require( './clients/conversions' );
+const Documents = require( './clients/documents' );
 
 let rabbit = JackRabbit( Config.rabbit.url );
 let exchange = rabbit.default();
@@ -12,50 +14,44 @@ let internals = {
 };
 
 queue.consume( function onMessage( data, ack ) {
-	console.log( `Running conversion`, data.conversion );
-
 	let buf = new Buffer( data.input.content );
 	let content = buf.toString( data.input.encoding );
 
-	updateConversionStatus( data.conversion, 'running' )
-		.then( () => {
-			console.log( `Task : Running : ${data.conversion.id}` );
-			return convert();
-		} )
-		.then( () => {
-			console.log( `Task : Complete : ${data.conversion.id}` );
-			return updateConversionStatus( data.conversion, 'complete' );
-		} )
-		.then( () => {
-			return ack();
+	Conversions.update( data.conversion, 'running' )
+		.then( conversion => {
+
+			console.log( `Task : Converting`, data.conversion );
+			return convert( content, conversion.outputFormat )
+				.then( content => {
+
+					console.log( `Task : Updating Document : ${conversion.outputFormat}` );
+					return Documents.upload( conversion, content );
+				} )
+				.then( doc => {
+
+					console.log( `Task : Updating Status : ${conversion.id}` );
+					return Conversions.update( conversion, 'complete' );
+				} )
+				.then( () => {
+
+					console.log( `Task : Completed : ${data.conversion.id}` );
+					return ack();
+				} );
 		} )
 		.catch( err => {
-			console.log( `Task : Error: ${err.stack}` );
+
+			// TODO: Poison queue the message
+			console.log( `Task : ${err.stack}` );
+			ack();
 		} );
 
-	function convert () {
+	function convert ( content, format ) {
 		return new Promise( ( resolve, reject ) => {
-			// TODO: Implement this
-			return resolve();
-		} );
-	}
-
-	function updateConversionStatus ( conversion, status ) {
-		return new Promise( ( resolve, reject ) => {
-
-			let headers = { Authorization: `Bearer ${Config.api.conversionsKey}` };
-			let payload = JSON.stringify( Object.assign( {}, conversion, { status } ) );
-			Wreck.put( `${Config.api.conversions}/${conversion.id}`, { headers, payload }, ( err, response, payload ) => {
-
+			PDC( content, 'markdown', format, function( err, result ) {
 				if ( err ) {
-					return reject( err );
+					reject( err );
 				}
-
-				if ( response.statusCode >= 300 ) {
-					return reject( new Error( `{res.statusCode} : ${res.statusMessage}` ) );
-				}
-
-				return resolve( { response, payload } );
+				resolve( result );
 			} );
 		} );
 	}
