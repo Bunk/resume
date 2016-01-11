@@ -15,6 +15,9 @@ let plugins = [
     register: require( 'good' ),
     options: {
         opsInterval: 1000,
+        //requestHeaders: true,
+        //requestPayload: true,
+        //responsePayload: true,
         reporters: [ {
             reporter: require( 'good-console' ),
             events: { log: '*', response: '*' }
@@ -26,6 +29,9 @@ let plugins = [
     options: { uri: Config.mongoUrl }
 }, {
     register: require( './auth' ),
+    options: Config
+}, {
+    register: require( './messaging' ),
     options: Config
 }, {
     register: require( './resources/resumes' ),

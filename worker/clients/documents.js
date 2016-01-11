@@ -6,9 +6,6 @@ const Config = require( '../config' );
 let internals = {
     endpoint: ( conversion ) => {
         return `${Config.api.documents}/${conversion.resume}/docs/${conversion.outputFormat}`;
-    },
-    headers: {
-        Authorization: `Bearer ${Config.api.documentsKey}`
     }
 };
 
@@ -17,12 +14,12 @@ class DocumentsClient extends Client {
     upload( conversion, content ) {
         let options = {
             url: internals.endpoint( conversion ),
-            headers: internals.headers,
             formData: {
                 content: new Buffer( content ),
                 encoding: 'utf8'
             }
         };
+        console.log( `Documents : Uploading : ${conversion.outputFormat}` );
         return super.request( 'put', options );
     }
 }

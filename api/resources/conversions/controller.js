@@ -9,16 +9,10 @@ const Conversion = Models.Conversion;
 const Document = Models.Document;
 
 const internals = {
-    queue: {
-        key: 'conversion_queue',
-        persistent: true
-    },
     getConversionQuery: ( request ) => {
         let conversionId = request.params.id;
-        let claims = request.auth.credentials.scopes.conversions;
-
         let query = { _id: conversionId };
-        if ( !claims.system ) {
+        if ( !request.auth.credentials.scopes.system ) {
             query._owner = request.auth.credentials.sub;
         }
 
@@ -27,14 +21,6 @@ const internals = {
 };
 
 class ConversionController {
-
-    constructor( config, exchange ) {
-        this.exchange = exchange;
-        this.queue = exchange.queue( {
-            name: internals.queue.key,
-            durable: true
-        } );
-    }
 
     * view( request, reply ) {
         let query = internals.getConversionQuery( request );
@@ -70,19 +56,8 @@ class ConversionController {
             outputFormat
         } ).save();
 
-        this.exchange.publish( {
-            conversion: {
-                id: conversion.id,
-                resume: conversion.resume,
-                inputFormat: conversion.inputFormat,
-                outputFormat: conversion.outputFormat,
-                status: conversion.status
-            },
-            input: {
-                content: doc.content,
-                encoding: doc.encoding
-            }
-        }, { key: internals.queue.key } );
+        // Publish the message to begin
+        request.server.methods.startConversion( conversion, doc );
 
         return reply( conversion )
             .created( request.to( 'conversion', { params: { id: conversion.id } } ) );

@@ -1,15 +1,37 @@
 'use strict';
 
-const ShortId = require('shortid');
-const JackRabbit = require('jackrabbit');
-const Hoek = require('hoek');
-const Joi = require('joi');
+const Wascally = require( 'wascally' );
+const Topology = require( '../shared/topology' );
 
-module.exports.register = (plugin, userOptions, next) => {
-    let defaultOptions = {
-        uri : process.env.RABBIT_URL || 'amqp://resume'
-    };
+let internals = {};
 
-    let opt = Hoek.applyToDefaults(defaultOptions, userOptions);
+module.exports.register = ( server, options, next ) => {
 
+    server.method( 'startConversion', ( conversion, document ) => {
+        let message = {
+            conversion: {
+                id: conversion.id,
+                resume: conversion.resume,
+                inputFormat: conversion.inputFormat,
+                outputFormat: conversion.outputFormat,
+                status: conversion.status
+            },
+            input: {
+                content: document.content,
+                encoding: document.encoding
+            }
+        };
+
+        Wascally.publish(
+            Topology.exchanges.convert.name,
+            Topology.topics.convert,
+            message );
+    }, {} );
+
+    Topology.configure( Wascally, options ).done( next );
+};
+
+exports.register.attributes = {
+    name: 'resume-messaging',
+    version: '0.0.1'
 };

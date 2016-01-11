@@ -3,7 +3,13 @@ module.exports = {
     port: process.env.API_PORT || 3000,
 
     // Services
-    rabbitUrl: process.env.RABBIT_URL || 'amqp://admin:password@docker',
+    messaging: {
+        user: process.env.RABBIT_USER || 'admin',
+        password: process.env.RABBIT_PASSWORD || 'password',
+        server: process.env.RABBIT_SERVER || 'docker',
+        conversionExchange: 'conversion',
+        conversionQueue: 'conversion.run'
+    },
     mongoUrl: process.env.MONGO_URL || 'mongodb://docker',
 
     resumesUrl: process.env.API_RESUMES_URL || 'http://docker:3000/resumes',

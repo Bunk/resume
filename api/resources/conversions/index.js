@@ -7,8 +7,7 @@ const Mongoose = require( 'mongoose' );
 const Controller = require( './controller' );
 
 exports.register = function( server, options, next ) {
-    let rabbit = JackRabbit( options.rabbitUrl );
-    let controller = new Controller( options, rabbit.default() );
+    let controller = new Controller( options );
     server.bind( controller );
 
     // /conversions

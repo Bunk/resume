@@ -10,10 +10,8 @@ const Document = Models.Document;
 let internals = {
     getResumeQuery: ( request ) => {
         let id = request.params.id;
-        let claims = request.auth.credentials.scopes.documents;
-
         let query = { _id: id };
-        if ( !claims.system ) {
+        if ( !request.auth.credentials.scopes.system ) {
             query.userId = request.auth.credentials.sub;
         }
 

@@ -6,8 +6,7 @@ const Config = require( '../config' );
 let internals = {
     endpoint: ( conversion ) => {
         return `${Config.api.conversions}/${conversion.id}`;
-    },
-    headers: { Authorization: `Bearer ${Config.api.conversionsKey}` }
+    }
 };
 
 class ConversionsClient extends Client {
@@ -15,7 +14,6 @@ class ConversionsClient extends Client {
     update( conversion, status ) {
         let options = {
             url: internals.endpoint( conversion ),
-            headers: internals.headers,
             body: {
                 resume: conversion.resume,
                 inputFormat: conversion.inputFormat,
@@ -24,6 +22,7 @@ class ConversionsClient extends Client {
             },
             json: true
         };
+        console.log( `Conversion : Set 'status': ${status}` );
 		return super.request( 'put', options );
     }
 }
