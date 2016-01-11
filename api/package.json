@@ -29,7 +29,6 @@
     "hapi-config": "^0.2.0",
     "hapi-to": "^1.0.0",
     "hoek": "^3.0.4",
-    "jackrabbit": "^4.0.3",
     "joi": "^7.0.1",
     "jsonwebtoken": "^5.5.0",
     "mongoose": "^4.3.4",

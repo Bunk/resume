@@ -2,8 +2,6 @@
 
 const co = require( 'co' );
 const Joi = require( 'joi' );
-const JackRabbit = require( 'jackrabbit' );
-const Mongoose = require( 'mongoose' );
 const Controller = require( './controller' );
 
 exports.register = function( server, options, next ) {
