@@ -1,7 +1,7 @@
 'use strict';
 
 const Wascally = require( 'wascally' );
-const Topology = require( '../shared/topology' );
+const Topology = require( './topology' );
 
 let internals = {};
 
@@ -28,7 +28,7 @@ module.exports.register = ( server, options, next ) => {
             message );
     }, {} );
 
-    Topology.configure( Wascally, options ).done( next );
+    Topology.configure( Wascally, options ).then( next );
 };
 
 exports.register.attributes = {

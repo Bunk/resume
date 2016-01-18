@@ -1,12 +1,50 @@
-mongodb:
+# Services
+worker:
+    build: ./services/worker
+    environment:
+        - SERVICE_3000_NAME=converter
+        - SERVICE_3000_TAGS=backend,converter
+        - RABBIT_SERVER=rabbit
+    links:
+        - rabbit
+api:
+    build: ./services/api
+    environment:
+        SERVICE_3000_NAME: "gateway"
+        SERVICE_3000_TAGS: "backend,api,gateway"
+        RABBIT_SERVER: "rabbit"
+        MONGO_SERVER: "mongo"
+    ports:
+        - "3000:3000"
+    links:
+        - rabbit
+        - mongo
+
+# Infrastructure
+consul:
+    image: gliderlabs/consul-server
+    command: -server -bootstrap -ui-dir /ui
+    ports:
+        - "8300:8300"
+        - "8400:8400"
+        - "8500:8500"
+        - "8600:53/udp"
+registrator:
+    image: gliderlabs/registrator
+    command: consul://consul:8500
+    links:
+        - consul
+    volumes:
+        - "/var/run/docker.sock:/tmp/docker.sock"
+mongo:
     image: mongo:3
     ports:
         - "27017:27017"
-
-rabbitmq:
+rabbit:
     image: rabbitmq:3-management
+    expose:
+        - "5672"
     ports:
-        - "5672:5672"
         - "15672:15672"
     environment:
         - RABBITMQ_DEFAULT_USER=admin

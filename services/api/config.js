@@ -10,7 +10,9 @@ module.exports = {
         conversionExchange: 'conversion',
         conversionQueue: 'conversion.run'
     },
-    mongoUrl: process.env.MONGO_URL || 'mongodb://docker',
+    mongo: {
+        server: process.env.MONGO_SERVER || 'docker'
+    },
 
     resumesUrl: process.env.API_RESUMES_URL || 'http://docker:3000/resumes',
     templatesUrl: process.env.API_TEMPLATES_URL || 'http://docker:3000/templates',

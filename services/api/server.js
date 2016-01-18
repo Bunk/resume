@@ -26,7 +26,7 @@ let plugins = [
 },
 {
     register: require( './data/mongo' ),
-    options: { uri: Config.mongoUrl }
+    options: { uri: `mongodb://${Config.mongo.server}` }
 }, {
     register: require( './auth' ),
     options: Config

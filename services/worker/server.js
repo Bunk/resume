@@ -5,14 +5,14 @@ const Config = require( './config' );
 const Convertor = require( './convertor' );
 const Conversions = require( './clients/conversions' );
 const Documents = require( './clients/documents' );
-const Topology = require( '../shared/topology' );
+const Topology = require( './topology' );
 
 let internals = { };
 internals.init = () => {
 	Wascally.handle( Topology.topics.convert, internals.handleConvert );
-
-	Object.assign( Config.messaging, { subscribe: [ 'convert' ] } );
-	Topology.configure( Wascally, Config ).done( () => { } );
+	Topology.configure( Wascally, Config )
+		.then( () => console.log( 'Connected!' ) )
+		.catch( err => console.log( err ) );
 };
 internals.handleConvert = ( msg ) => {
 	let buf = new Buffer( msg.body.input.content );
