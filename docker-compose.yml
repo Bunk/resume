@@ -1,29 +1,37 @@
-# Services
+# Microservices
 worker:
     build: ./services/worker
     environment:
-        - SERVICE_3000_NAME=converter
-        - SERVICE_3000_TAGS=backend,converter
-        - RABBIT_SERVER=rabbit
+        SERVICE_3000_NAME: "api_worker"
+        SERVICE_3000_TAGS: "backend,api_worker"
+        SERVICE_3000_CHECK_HTTP: "/health"
+        SERVICE_3000_CHECK_INTERVAL: "15s"
+        RABBIT_SERVER: "rabbit"
+    expose:
+        - 3000
     links:
         - rabbit
+        - consul
 api:
     build: ./services/api
     environment:
-        SERVICE_3000_NAME: "gateway"
-        SERVICE_3000_TAGS: "backend,api,gateway"
+        SERVICE_3000_NAME: "api"
+        SERVICE_3000_TAGS: "backend,api"
+        SERVICE_3000_CHECK_HTTP: "/health"
+        SERVICE_3000_CHECK_INTERVAL: "15s"
         RABBIT_SERVER: "rabbit"
         MONGO_SERVER: "mongo"
-    ports:
-        - "3000:3000"
+    expose:
+        - 3000
     links:
         - rabbit
         - mongo
+        - consul
 
-# Infrastructure
+# Discovery
 consul:
     image: gliderlabs/consul-server
-    command: -server -bootstrap -ui-dir /ui
+    command: -node consulserv -bootstrap -ui-dir /ui -client 0.0.0.0
     ports:
         - "8300:8300"
         - "8400:8400"
@@ -31,11 +39,21 @@ consul:
         - "8600:53/udp"
 registrator:
     image: gliderlabs/registrator
-    command: consul://consul:8500
+    command: -internal consul://consul:8500
     links:
         - consul
     volumes:
         - "/var/run/docker.sock:/tmp/docker.sock"
+# Infrastructure Services
+loadbalancer:
+    build: ./loadbalancer
+    environment:
+        SERVICE_80_NAME: "lb"
+        SERVICE_80_TAGS: "lb"
+    links:
+        - consul
+    ports:
+        - "80:80"
 mongo:
     image: mongo:3
     ports:
@@ -43,7 +61,7 @@ mongo:
 rabbit:
     image: rabbitmq:3-management
     expose:
-        - "5672"
+        - 5672
     ports:
         - "15672:15672"
     environment:

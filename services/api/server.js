@@ -15,16 +15,12 @@ let plugins = [
     register: require( 'good' ),
     options: {
         opsInterval: 1000,
-        //requestHeaders: true,
-        //requestPayload: true,
-        //responsePayload: true,
         reporters: [ {
             reporter: require( 'good-console' ),
             events: { log: '*', response: '*' }
         } ]
     }
-},
-{
+}, {
     register: require( './data/mongo' ),
     options: { uri: `mongodb://${Config.mongo.server}` }
 }, {
@@ -42,6 +38,14 @@ let plugins = [
 }, {
     register: require( './resources/formats' ),
     options: Config
+}, {
+	register: require( 'hapi-and-healthy' ),
+	options: {
+        path: '/health',
+		name: Package.name,
+		version: Package.version,
+		env: process.env.NODE_ENV || 'development'
+	}
 } ];
 
 let server = new Hapi.Server( { debug: { request: [ 'info', 'error' ] } } );

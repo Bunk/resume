@@ -15,6 +15,8 @@ internals.topics = {
     convert: 'convert.run'
 };
 internals.tryConfigure = ( rabbit, config ) => {
+
+    rabbit.reset();
     return rabbit.configure( {
         connection: {
             user: config.messaging.user,
@@ -53,11 +55,11 @@ internals.configure = ( rabbit, config ) => {
 
     return new Promise( function( resolve, reject ) {
 
-        let backoff = Backoff.exponential( { initialDelay: 7000, randomisationFactor: 0.1 } );
+        let backoff = Backoff.exponential( { randomisationFactor: 0.1 } );
         backoff.failAfter( 10 );
 
         backoff.on( 'backoff', ( number, delay, err ) => {
-            console.log( `Topology: Config:`, { attemp: number, delay: `${delay}ms` }, err );
+            console.log( `Topology: Config:`, { attempt: number, delay: `${delay}ms` }, err );
         } );
 
         backoff.on( 'ready', ( number, delay ) => {

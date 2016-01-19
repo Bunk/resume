@@ -1,46 +1,48 @@
 'use strict';
 
-const Wascally = require( 'wascally' );
+const Hapi = require( 'hapi' );
+const Package = require( './package.json' );
 const Config = require( './config' );
-const Convertor = require( './convertor' );
-const Conversions = require( './clients/conversions' );
-const Documents = require( './clients/documents' );
-const Topology = require( './topology' );
+const Messaging = require( './messaging' );
 
-let internals = { };
-internals.init = () => {
-	Wascally.handle( Topology.topics.convert, internals.handleConvert );
-	Topology.configure( Wascally, Config )
-		.then( () => console.log( 'Connected!' ) )
-		.catch( err => console.log( err ) );
-};
-internals.handleConvert = ( msg ) => {
-	let buf = new Buffer( msg.body.input.content );
-	let content = buf.toString( msg.body.input.encoding );
+let plugins = [
+{
+    register: require( 'good' ),
+    options: {
+        opsInterval: 1000,
+        reporters: [ {
+            reporter: require( 'good-console' ),
+            events: { log: '*', response: '*' }
+        } ]
+    }
+}, {
+	register: require( 'hapi-and-healthy' ),
+	options: {
+        path: '/health',
+		name: Package.name,
+		version: Package.version,
+		env: process.env.NODE_ENV || 'development',
+		test: {
+			node: [ Messaging.testHealth ]
+		}
+	}
+}, {
+    register: Messaging,
+	options: Config
+} ];
 
-	Conversions.update( msg.body.conversion, 'running' )
-		.then( conversion => {
+let server = new Hapi.Server( { debug: { request: [ 'info', 'error' ] } } );
+server.connection( { port: Config.port } );
+server.register( plugins, ( err ) => {
 
-			let conversionOpt = {
-				inputFormat: conversion.inputFormat,
-				outputFormat: conversion.outputFormat
-			};
-			return Convertor.convert( content, conversionOpt )
-				.then( content => {
-					return Documents.upload( conversion, content );
-				} )
-				.then( doc => {
-					return Conversions.update( conversion, 'complete' );
-				} )
-				.then( () => {
-					return msg.ack();
-				} );
-		} )
-		.catch( err => {
+    if ( err ) {
+        throw err;
+    }
+    server.start( ( err ) => {
 
-			console.log( `Task : ${err.stack}` );
-			msg.reject();
-		} );
-};
-
-internals.init();
+        if ( err ) {
+            throw err;
+        }
+        server.log( 'info', `Running [${Package.name}] at [${server.info.uri}]` );
+    } );
+} );
