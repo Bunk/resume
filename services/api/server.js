@@ -5,49 +5,6 @@ const Boom = require( 'boom' );
 const Package = require( './package.json' );
 const Config = require( './config' );
 
-let plugins = [
-    require( 'hapi-async-handler' ),
-    require( 'hapi-to' ),
-    require( 'hapi-auth-jwt2' ),
-    require( 'bell' ),
-    require( 'halacious' ),
-{
-    register: require( 'good' ),
-    options: {
-        opsInterval: 1000,
-        reporters: [ {
-            reporter: require( 'good-console' ),
-            events: { log: '*', response: '*' }
-        } ]
-    }
-}, {
-    register: require( './data/mongo' ),
-    options: { uri: `mongodb://${Config.mongo.server}` }
-}, {
-    register: require( './auth' ),
-    options: Config
-}, {
-    register: require( './messaging' ),
-    options: Config
-}, {
-    register: require( './resources/resumes' ),
-    options: Config
-}, {
-    register: require( './resources/conversions' ),
-    options: Config
-}, {
-    register: require( './resources/formats' ),
-    options: Config
-}, {
-	register: require( 'hapi-and-healthy' ),
-	options: {
-        path: '/health',
-		name: Package.name,
-		version: Package.version,
-		env: process.env.NODE_ENV || 'development'
-	}
-} ];
-
 let server = new Hapi.Server( { debug: { request: [ 'info', 'error' ] } } );
 server.connection( {
     port: Config.port,
@@ -56,6 +13,41 @@ server.connection( {
     }
 } );
 
+let plugins = [
+    require( 'hapi-async-handler' ),
+    require( 'hapi-to' ),
+    require( 'hapi-auth-jwt2' ),
+    require( 'bell' ),
+    require( 'halacious' ),
+    {
+        register: require( 'good' ),
+        options: {
+            opsInterval: 1000,
+            reporters: [ {
+                reporter: require( 'good-console' ),
+                events: { log: '*', response: '*' }
+            } ]
+        }
+    },
+    { register: require( './data/mongo' ), options: { uri: `mongodb://${Config.mongo.server}` } },
+    { register: require( './auth' ), options: Config },
+    { register: require( './messaging' ), options: Config },
+    { register: require( './resources/resumes' ), options: Config },
+    { register: require( './resources/conversions' ), options: Config },
+    { register: require( './resources/formats' ), options: Config },
+    {
+        register: require( 'hapi-and-healthy' ),
+        options: {
+            path: '/health',
+            name: Package.name,
+            version: Package.version,
+            env: process.env.NODE_ENV || 'development',
+            custom: {
+                server: server.info
+            }
+        }
+    }
+];
 server.register( plugins, ( err ) => {
 
     if ( err ) {
