@@ -15,55 +15,31 @@ author: 'JD Courtoy'
 
 ### Summary
 
-I have a passion for solving complicated problems through software, and seek to work with other like-minded polyglots who know how to use the right tool for the job at hand.  I'm driven to find the simplest solution to software problems that deliver customer value, and am a life-long, continuous student of the industry.  I love to work in architecture, design, and development of large- and small-scale systems; and build the teams and environments that make incredible things happen.
-
-------
-
-### Languages
-
-1. JavaScript
-2. Java / Groovy
-3. C# / F#
-4. Ruby
-5. Powershell / Bash
-6. Antlr / XText / C / C++
-
-### Platforms
-
-1. Spring 4 / Spring Boot
-2. ASP.NET / MVC / Web API
-3. NodeJS / Hapi / Seneca
-4. NoSQL / Hadoop
-5. SQL Server / MySQL
-6. Docker / Compose / Tutum
-7. Azure / AWS / Heroku
-8. Git / Hg / SVN
-9. OS X / Linux / Windows
-10. RabbitMQ / NServiceBus
-
-### Skills
-
-1. Scrum / Kanban / Agile
-2. OOA / OOD / AOP
-3. SOA / Micro-Services
-4. Test-Driven Development
-5. Trunk-Based Development
-6. Continuous Delivery
-7. Continuous Review
-8. Team Building
-9. Polyglot
+Samurai are servant warriors known for their virtue—which is my chosen mindset when approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who find and utilize the right tool for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.
 
 ------
 
 ### Experience
+LeanKit
+:   **Jan 2016 - Current** *Sr. Software Engineer*
+
+    * Back-end development and DevOps on the Mobile squad using NodeJS focusing on greasing the mobile applications' respective wheels.
+    * Integral in driving the in-flight breaking apart of the monolithic legacy application into smaller micro-services.
+    * Fully architected, built, and evangelised the mobile and web push notifications platform.
+    * Championed and built the ChatOps-enabled delivery pipeline for the mobile app and micro-services exploiting feature toggles for continuous deployments.
+    * Provided technical direction and mentoring to Jr. and Sr. developers.
+    * Open-sourced several projects related to RabbitMQ and ChatOps.
+
+    Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C#, F#, Go, Bash (POSIX), .NET, Azure, GitHub, SQL Server, Redis, RabbitMQ, NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy, TeamCity, Bitrise, Hubot / Slapp / Botkit
+
 NC2 Media
-:   **Feb 2015 - Current** *Sr. Full Stack Developer*
+:   **Feb 2015 - Jan 2016** *Sr. Full Stack Developer*
 
     * Developed a cutting-edge marketplace platform for video sales pushing towards a micro-services architecture.
     * Automated all things dealing with continuous delivery to the Azure cloud as resident DevOps evangelist.
-    * Supported the team in establishing an Agile development culture, and the adoption of new coding standards, peer code reviews, and tooling.
+    * Supported the team in establishing an agile development culture, and the adoption of new coding standards, peer code reviews, and tooling.
     * Responsible for helping drive lean development practices, scalable architecture, and delivering MVP's.
-    * Provided technical direction and mentoring to Junior developers.
+    * Provided technical direction and mentoring to Jr. developers.
     * Open-sourced a few of our internal tools including a scaffolding engine for our front-end SPA apps, and Be-Be, our friendly chat ops automation bot.
 
     Tech Stack: C#, F#, JavaScript, AngularJS, CucumberJS, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
@@ -148,6 +124,26 @@ Community Health Systems
 
 ### Projects {#projects}
 
+Mobot
+:   **[https://github.com/LeanKit-Labs/slack-mobots](https://github.com/LeanKit-Labs/slack-mobots)**
+    LeanKit Mobile squad's automation chat bot
+
+Bucko
+:   **[https://github.com/Bunk/ae-bucko-public](https://github.com/Bunk/ae-bucko-public)**
+    LeanKit Tag & Release automation chat bot
+
+rabbit-topology
+:   **[https://github.com/Bunk/rabbit-topology](https://github.com/Bunk/rabbit-topology)**
+    RabbitMQ DSL parser for defining a topology
+
+amqplib-topology
+:   **[https://github.com/Bunk/amqplib-topology](https://github.com/Bunk/amqplib-topology)**
+    Asserts a Rabbit MQ topology using the amqp.node library.
+
+amqplib-mocks
+:   **[https://github.com/Bunk/amqplib-mocks](https://github.com/Bunk/amqplib-mocks)**
+    Mocks for the amqp.node library
+
 HL7 dashboard
 :   **[http://hl7-dashboard.azurewebsites.net/](http://hl7-dashboard.azurewebsites.net/)**
     A responsive dashboard for searching & viewing HL7 message throughput built on Web API, DurandalJS, SignalR, and Lucene.
@@ -160,10 +156,6 @@ flippers
 :    **[http://github.com/Bunk/flippers](http://github.com/Bunk/flippers)**
     A feature toggles micro-service built on the MEAN stack with planned client support in JavaScript, C#, Java, and Ruby.
 
-lollipop
-:    **[http://github.com/Bunk/lollipop](http://github.com/Bunk/lollipop)**
-    A League of Legends client API for scraping data from game servers using RTMPS.
-
 resume
 :    **[http://github.com/Bunk/resume](http://github.com/Bunk/resume)**
     This resume hosted as a continuous deployment project written in Markdown and deployed as a simple HTML site.
@@ -174,3 +166,39 @@ resume
 
 Bachelor of Science (Computer Science)
 :   **2000 - 2005** *Georgia Institute of Technology*
+
+------
+
+### Languages
+
+1. JavaScript
+2. Java / Groovy
+3. C# / F#
+4. Ruby
+5. Powershell / Bash
+6. Antlr / XText / C / C++
+
+### Platforms
+
+1. Spring 4 / Spring Boot
+2. ASP.NET / MVC / Web API
+3. NodeJS / Hapi / Seneca
+4. NoSQL / Hadoop
+5. SQL Server / MySQL
+6. Docker / Compose / Tutum
+7. Azure / AWS / Heroku
+8. Git / Hg / SVN
+9. OS X / Linux / Windows
+10. RabbitMQ / NServiceBus
+
+### Skills
+
+1. Scrum / Kanban / Agile
+2. OOA / OOD / AOP
+3. SOA / Micro-Services
+4. Test-Driven Development
+5. Trunk-Based Development
+6. Continuous Delivery
+7. Continuous Review
+8. Team Building
+9. Polyglot

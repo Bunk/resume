@@ -6,7 +6,7 @@ STYLE_DIR = styles
 DATE = $(shell date +'%B %d, %Y')
 
 # Default build is HTML resume
-all: clean html pdf view
+all: clean html view #pdf
 
 # Target for building the resume in HTML
 html: html_style $(TEMPLATE_DIR)/template.html5 $(SRC_DIR)/resume.md | directories
