@@ -1,0 +1,11 @@
+.git
+.vscode
+.DS_Store*
+.circleci
+src
+npm-debug.log
+.editorconfig
+.gitignore
+Dockerfile
+Makefile
+README.md

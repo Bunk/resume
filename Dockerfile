@@ -1,25 +1,14 @@
-FROM haskell:7.10
+FROM node:6-alpine
+MAINTAINER JD Courtoy <jd.courtoy@gmail.com>
 
-MAINTAINER JD Courtoy
+ENV APP_PATH /app
+WORKDIR $APP_PATH
 
-ENV PANDOC_VERSION "1.14.1"
+RUN npm i -g http-server
 
-# install Pandoc
-RUN cabal update && cabal install pandoc-${PANDOC_VERSION}
+COPY . .
 
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-    texlive-latex-base \
-    texlive-xetex \
-    latex-xcolor \
-    texlive-math-extra \
-    texlive-latex-extra \
-    texlive-fonts-extra \
-    texlive-bibtex-extra \
-    fontconfig
+EXPOSE 8080
 
-WORKDIR /src
-
-ENTRYPOINT ["/root/.cabal/bin/pandoc"]
-
+ENTRYPOINT [ "http-server" ]
 CMD ["--help"]
