@@ -8,7 +8,7 @@ jobs:
       - checkout
       - setup_remote_docker
       - run: |
-            TAG=2.0.0_$CIRCLE_BUILD_NUM
+            TAG=2.0.1_$CIRCLE_BUILD_NUM
             docker build -t bunk/resume:latest -t bunk/resume:$TAG .
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push bunk/resume:$TAG
