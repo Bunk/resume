@@ -4,6 +4,7 @@ author: 'JD Courtoy'
 ---
 
 # JD Courtoy
+
 ## Lead Architect & Coding Samurai
 
 > <span>[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i></span>
@@ -20,6 +21,7 @@ Samurai are servant warriors known for their virtue—which is my chosen mindset
 ------
 
 ### Experience
+
 LeanKit
 :   **Jan 2016 - Current** *Sr. Software Engineer*
 
@@ -48,7 +50,7 @@ Asurion
 :   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
 
     * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which can be utilized across tenants.
-    * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitates continuous delivery for our department.
+    * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitated continuous delivery for our department.
     * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
     * Pushed technical excellence by achieving 100% peer-reviewed and tested code, adoption of new languages and tools, and leading the team through a truly successful Scrum process.  Our team was viewed internally and externally as the cutting edge of Asurion.
     * Led groups of technical and business colleagues through Sharpen-the-Saw meet-ups in order to drive knowledge share across the company.
@@ -162,7 +164,7 @@ resume
 
 ------
 
-###Education
+### Education
 
 Bachelor of Science (Computer Science)
 :   **2000 - 2005** *Georgia Institute of Technology*
@@ -194,7 +196,7 @@ Bachelor of Science (Computer Science)
 ### Skills
 
 1. Scrum / Kanban / Agile
-2. OOA / OOD / AOP
+2. OOA / OOD / AOP / DDD
 3. SOA / Micro-Services
 4. Test-Driven Development
 5. Trunk-Based Development
