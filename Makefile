@@ -5,7 +5,7 @@ STYLE_DIR = styles
 DATE = $(shell date +'%B %d, %Y')
 
 # Default build is HTML resume
-all: clean html view #pdf
+all: clean html pdf
 
 # Target for building the resume in HTML
 html: html_style $(SRC_DIR)/$(TEMPLATE_DIR)/resume.html5 $(SRC_DIR)/resume.md | directories
@@ -30,7 +30,7 @@ view: html
 
 # Target for building the resume as a PDF
 pdf: html
-	wkhtmltopdf \
+	docker run -v `pwd`/$(DIST_DIR):/$(DIST_DIR) openlabs/docker-wkhtmltopdf \
 	--print-media-type \
 	--orientation Portrait \
 	--page-size A4 \
