@@ -1,7 +1,8 @@
 ---
 title: 'JD Courtoy - Resume'
 author: 'JD Courtoy'
----
+summary: 'Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.'
+...
 
 # JD Courtoy
 
@@ -10,7 +11,7 @@ author: 'JD Courtoy'
 > <span>[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i></span>
 > <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
 > <span>[jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)<i class="fa fa-envelope-square"></i><span>
-> <span>[(615) 332-2716](callto:+16153322716)<i class="fa fa-phone-square"></i>
+> <span>[(615)332-2716](callto:+16153322716)<i class="fa fa-phone-square"></i>
 
 ------
 

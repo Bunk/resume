@@ -5,7 +5,15 @@ STYLE_DIR = styles
 DATE = $(shell date +'%B %d, %Y')
 
 # Default build is HTML resume
-all: clean html pdf
+all: clean md html pdf
+
+md: directories
+	docker run -v `pwd`:/source jagregory/pandoc \
+		--from markdown+yaml_metadata_block+header_attributes+definition_lists \
+		--to markdown \
+		--variable=date:'$(DATE)' \
+		--output $(DIST_DIR)/resume.md \
+		$(SRC_DIR)/resume.md
 
 # Target for building the resume in HTML
 html: html_style $(SRC_DIR)/$(TEMPLATE_DIR)/resume.html5 $(SRC_DIR)/resume.md | directories
