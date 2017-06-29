@@ -16,32 +16,32 @@ author: 'JD Courtoy'
 
 ### Summary
 
-Samurai are servant warriors known for their virtue—which is my chosen mindset when approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who find and utilize the right tool for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.
+Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.
 
 ------
 
 ### Experience
 
 LeanKit
-:   **Jan 2016 - Current** *Sr. Software Engineer*
+:   **Jan 2016 - Present** *Sr. Software Engineer*
 
-    * Back-end development and DevOps on the Mobile squad using NodeJS focusing on greasing the mobile applications' respective wheels.
-    * Integral in driving the in-flight breaking apart of the monolithic legacy application into smaller micro-services.
-    * Fully architected, built, and evangelised the mobile and web push notifications platform.
-    * Championed and built the ChatOps-enabled delivery pipeline for the mobile app and micro-services exploiting feature toggles for continuous deployments.
-    * Provided technical direction and mentoring to Jr. and Sr. developers.
+    * Greased the mobile app's wheels by providing back-end development in NodeJS and DevOps support.
+    * Broke key NodeJS micro-services out of the existing monolithic .NET application while maintaining application integrity during customer use.
+    * Architected, built, and evangelised the mobile and web push notifications platform.
+    * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and micro-services exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
+    * Fostered technical direction and mentoring for Jr. and Sr. developers alike.
     * Open-sourced several projects related to RabbitMQ and ChatOps.
 
-    Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C#, F#, Go, Bash (POSIX), .NET, Azure, GitHub, SQL Server, Redis, RabbitMQ, NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy, TeamCity, Bitrise, Hubot / Slapp / Botkit
+    Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C#, F#, Golang, Bash (POSIX), .NET, Azure, GitHub, SQL Server, Redis, RabbitMQ, NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy, TeamCity, Bitrise, Hubot / Slapp / Botkit
 
 NC2 Media
 :   **Feb 2015 - Jan 2016** *Sr. Full Stack Developer*
 
-    * Developed a cutting-edge marketplace platform for video sales pushing towards a micro-services architecture.
-    * Automated all things dealing with continuous delivery to the Azure cloud as resident DevOps evangelist.
+    * Architected and built a cutting-edge marketplace platform for video sales built on a micro-services architecture.
+    * Automated "all the things" dealing with continuous delivery to the Azure cloud as resident DevOps evangelist.
     * Supported the team in establishing an agile development culture, and the adoption of new coding standards, peer code reviews, and tooling.
-    * Responsible for helping drive lean development practices, scalable architecture, and delivering MVP's.
-    * Provided technical direction and mentoring to Jr. developers.
+    * Drove lean development practices, scalable architectures, and MVP delivery.
+    * Provided technical direction and mentoring to Jr. and Sr. developers alike.
     * Open-sourced a few of our internal tools including a scaffolding engine for our front-end SPA apps, and Be-Be, our friendly chat ops automation bot.
 
     Tech Stack: C#, F#, JavaScript, AngularJS, CucumberJS, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
@@ -49,8 +49,8 @@ NC2 Media
 Asurion
 :   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
 
-    * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which can be utilized across tenants.
-    * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitated continuous delivery for our department.
+    * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
+    * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitated continuous delivery for our department with daily deployments.
     * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
     * Pushed technical excellence by achieving 100% peer-reviewed and tested code, adoption of new languages and tools, and leading the team through a truly successful Scrum process.  Our team was viewed internally and externally as the cutting edge of Asurion.
     * Led groups of technical and business colleagues through Sharpen-the-Saw meet-ups in order to drive knowledge share across the company.
