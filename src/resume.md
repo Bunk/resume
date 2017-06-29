@@ -62,7 +62,7 @@ Asurion
 WPC Services
 :   **Oct 2013 - Mar 2014** *Sr. Application Architect*
 
-    * Architected and developed the entire stack for a legacy HL7 BizTalk dashboard into a modular tiered architecture. (Demo available)
+    * Rebuilt a legacy HL7 BizTalk messaging dashboard into a modular tiered architecture.
     * Performed an audit of the Integration Services department at HCA, assessing the current and desired future state of their architecture.
 
     Tech Stack: C#, Web API 2, ASP.NET MVC 5, LESS for CSS, DurandalJS, KnockoutJS, BreezeJS, EF 5, SQL Server 2012, Lucene, BizTalk 2012, Azure, Visual Studio Online, TFS
@@ -80,13 +80,11 @@ Press Ganey Associates
 
 :   *Director, Software Architecture*
 
-    * Architected and built the Quality Performer (QP) front-end website to push front-end logic to the client.
-    * Architected and re-engineered the QP service and front-end to utilize a CQRS architecture which dramatically improved the performance and feedback of the application by an order of magnitude (5s to 50ms).
-    * Architected and re-engineered the QP workflow engine to a DSL which supported dual language code-generation which allowed a single file to support both back-end C# and front-end JavaScript implementations simultaneously.
-    * Architected and engineered the Clinical Performer (CP) large-scale (20TB) data analytics dashboard.
+    * Architected and built the Quality Performer (QP) front-end website using a CQRS architecture and dynamic workflow engine.
+    * Architected and built the Clinical Performer (CP) large-scale (20TB) data analytics dashboard.
     * Supplied technical direction and management to a team of 10 developers across multiple ongoing projects.
     * Established a successful Scrum implementation that could gauge team cadence and deliver on that cadence regularly.
-    * Coached team members on patterns, usage, and acceptable development practices.  Coding practices were verified through peer reviews, ReSharper, and FxCop.
+    * Coached team members on patterns, usage, and acceptable development practices.
     * Implemented continuous integration and push-button deployments.
 
     Tech Stack: C#, ASP.NET MVC 4, Web API, Castle Windsor, Ninject, JavaScript, jQuery, KnockoutJS, RaphaelJS, HighCharts, MDX, LESS for CSS, RavenDB, XText, TeamCity
@@ -94,31 +92,15 @@ Press Ganey Associates
 Data Advantage, LLC
 :   **Jan 2008 - Nov 2009 (aquisition)** *Director of Software Architecture*
 
-    * Extended the Quality Manager (QM) application with automated back-office tools leading to an exponential increase in developer productivity.
-    * Designed and engineered an automated reporting system which interfaced with government healthcare regulators and met strenuous regulations on quality and timelines.
-    * Designed and engineered the Hospital Value Index (HVI) which allowed the general public to easily rank hospitals in their area by many criteria, including the ability to geo-spatially navigate through a GIS solution.
-    * Brought attention to Data Advantage through these applications, eventually resulting in an aquisition by Press Ganey.
-    * Recruited, trained, coached, and managed a team of five additional developers.
-
     Tech Stack: C#, ASP.NET MVC, Caliburn / Prism, Castle Windsor, NHibernate, SQL Server 2008 R2, SSRS, JavaScript, jQuery, RaphaelJS, HighCharts, ArcGIS, SVN, Cruise Control
 
 Loch Erin
 :   **Feb 2007 - Jan 2008 (acquisition)** *Principal Software Architect*
 
-    * Architected and engineered the Quality Manager (QM) web-based front-end application designed to meet governmental compliance regulations around quality of care metrics in hospitals.
-    * Architected and engineered a custom visual flowcharting rules engine for the QM application built upon Microsoft Workflow Foundation (WF).  We were one of the first Microsoft shops to deliver a production implementation of WF.
-    * Designed and engineered the backend database structure and ORM layer for the QM application.
-    * Guided and trained a team of three developers.
-
     Tech Stack: C#, ASP.NET, HTML/CSS, WCF, WF, SQL Server 2008, NHibernate
 
 Community Health Systems
 :   **Feb 2007 - Jan 2008** *Sr. Web Developer*
-
-    * Architected and engineered the Quality Resource Manager (QRM) application and built a very simple rules engine developed using a DSL written with Antlr.
-    * Designed and engineered a physician privileges tracking system that helped hospitals monitor which physicians were performing outside of their privileges.
-    * Coordinated with other internal departments to deliver ad-hoc reporting solutions as needed.
-    * Mentored and held lunch & learns for developers.
 
     Tech Stack: C#, ASP.NET, SQL Server, SSRS, Antlr
 
