@@ -4,10 +4,10 @@ JD Courtoy
 Lead Architect & Coding Samurai
 -------------------------------
 
-* [GitHub: github.com/Bunk](https://github.com/Bunk)
-* [LinkedIn: linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)
-* [email: jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)
-* [phone: (615) 332-2716](callto:+16153322716)
+> [[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i>]{}
+> <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
+> <span>[jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)<i class="fa fa-envelope-square"></i><span>
+> <span>[(615)332-2716](callto:+16153322716)<i class="fa fa-phone-square"></i>
 
 ------------------------------------------------------------------------
 
@@ -17,17 +17,19 @@ Samurai are servant warriors known for their virtue—which is my mindset
 approaching software development. I have a passion for solving
 complicated problems using the simplest possible solution, and seek to
 work with other like-minded polyglots who utilize the right tools for
-the job at hand. I seek to delight customers and am a life-long,
-continuous student of the industry.
+the job at hand. I strive to humbly delight consumers of my work, and am
+a life-long, continuous student of the software development community.
 
 ------------------------------------------------------------------------
 
 ### Experience
 
-LeanKit — *Sr. Software Engineer* — **Jan 2016 - Present**
+LeanKit
+
+:   **Jan 2016 - Present** *Sr. Software Engineer*
 
     -   Greased the mobile app's wheels by providing back-end
-        development in NodeJS and DevOps support.
+        development in NodeJS and DevOps support for the public API.
     -   Broke key NodeJS micro-services out of the existing monolithic
         .NET application while maintaining application integrity during
         customer use.
@@ -38,7 +40,9 @@ LeanKit — *Sr. Software Engineer* — **Jan 2016 - Present**
         toggles for continuous deployments with weekly deployments on
         mobile and daily deployments on the back-end.
     -   Fostered technical direction and mentoring for Jr. and Sr.
-        developers alike.
+        developers alike by leading code reviews, helping QA level up
+        their automation chops, pushing new concepts into code spikes,
+        and transitioning those spikes into delivered features.
     -   Open-sourced several projects related to RabbitMQ and ChatOps.
 
     Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C\#, F\#, Golang,
@@ -46,7 +50,9 @@ LeanKit — *Sr. Software Engineer* — **Jan 2016 - Present**
     NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy,
     TeamCity, Bitrise, Hubot / Slapp / Botkit
 
-NC2 Media — *Sr. Full Stack Developer* — **Feb 2015 - Jan 2016**
+NC2 Media
+
+:   **Feb 2015 - Jan 2016** *Sr. Full Stack Developer*
 
     -   Architected and built a cutting-edge marketplace platform for
         video sales built on a micro-services architecture.
@@ -67,7 +73,9 @@ NC2 Media — *Sr. Full Stack Developer* — **Feb 2015 - Jan 2016**
     API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure,
     DocumentDB, Redis
 
-Asurion — *Sr. Development Tech Lead* — **Apr 2014 - Feb 2015**
+Asurion
+
+:   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
 
     -   Architected a new platform built around micro-services to
         "strangle out" hard to test, defect-prone, and unmanageable code
@@ -95,7 +103,9 @@ Asurion — *Sr. Development Tech Lead* — **Apr 2014 - Feb 2015**
     Tech Stack: Java, Groovy, Gradle, JavaScript, AngularJS, Cucumber,
     Compass, Spring 4 + Boot, Jenkins, Stash (Git), Thoughtworks Go
 
-WPC Services — *Sr. Application Architect* — **Oct 2013 - Mar 2014**
+WPC Services
+
+:   **Oct 2013 - Mar 2014** *Sr. Application Architect*
 
     -   Rebuilt a legacy HL7 BizTalk messaging dashboard into a modular
         tiered architecture.
@@ -109,7 +119,7 @@ WPC Services — *Sr. Application Architect* — **Oct 2013 - Mar 2014**
 
 Press Ganey Associates
 
-:    *Director, Customer Experience*
+:   **Nov 2009 - Oct 2013** *Director, Customer Experience*
 
     -   Supplied technical direction and management to a team of 20
         developers across multiple ongoing projects (both existing and

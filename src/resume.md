@@ -1,7 +1,7 @@
 ---
 title: 'JD Courtoy - Resume'
 author: 'JD Courtoy'
-summary: 'Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.'
+summary: 'Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work, and am a life-long, continuous student of the software development community.'
 ...
 
 # JD Courtoy
@@ -17,7 +17,7 @@ summary: 'Samurai are servant warriors known for their virtue—which is my mind
 
 ### Summary
 
-Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I seek to delight customers and am a life-long, continuous student of the industry.
+Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work, and am a life-long, continuous student of the software development community.
 
 ------
 
@@ -26,11 +26,11 @@ Samurai are servant warriors known for their virtue—which is my mindset approa
 LeanKit
 :   **Jan 2016 - Present** *Sr. Software Engineer*
 
-    * Greased the mobile app's wheels by providing back-end development in NodeJS and DevOps support.
+    * Greased the mobile app's wheels by providing back-end development in NodeJS and DevOps support for the public API.
     * Broke key NodeJS micro-services out of the existing monolithic .NET application while maintaining application integrity during customer use.
     * Architected, built, and evangelised the mobile and web push notifications platform.
     * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and micro-services exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
-    * Fostered technical direction and mentoring for Jr. and Sr. developers alike.
+    * Fostered technical direction and mentoring for Jr. and Sr. developers alike by leading code reviews, helping QA level up their automation chops, pushing new concepts into code spikes, and transitioning those spikes into delivered features.
     * Open-sourced several projects related to RabbitMQ and ChatOps.
 
     Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C#, F#, Golang, Bash (POSIX), .NET, Azure, GitHub, SQL Server, Redis, RabbitMQ, NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy, TeamCity, Bitrise, Hubot / Slapp / Botkit
