@@ -42,10 +42,11 @@ pdf: html
 	--print-media-type \
 	--orientation Portrait \
 	--page-size A4 \
-	--margin-top 15 \
-	--margin-left 15 \
-	--margin-right 15 \
-	--margin-bottom 15 \
+	--margin-top 0 \
+	--margin-left 0 \
+	--margin-right 0 \
+	--margin-bottom 0 \
+	--disable-smart-shrinking \
 	$(DIST_DIR)/index.html \
 	$(DIST_DIR)/resume.pdf
 

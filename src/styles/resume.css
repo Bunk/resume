@@ -22,6 +22,7 @@
 body {
   font-family: 'Open Sans','Myriad Pro','Myriad',sans-serif;
   color: #1D1313;
+  font-size: 16px;
   font-weight: 300;
   margin:0;
 }
@@ -107,15 +108,15 @@ hr {
 h1 {
   margin: 0;
   padding: 0;
-  font-size: 36px;
-  /*letter-spacing: -1px;*/
+  font-size: 275%;
+  /* letter-spacing: -1px; */
   font-weight: normal;
 }
 
 h2 {
   margin: 0;
   padding: 0;
-  font-size: 18px;
+  font-size: 115%;
   font-style: italic;
   /*letter-spacing: -1px;*/
   font-weight: normal;
@@ -240,7 +241,7 @@ dl em {
     width: 912px;
   }
   blockquote {
-    top: 40px;
+    top: 20px;
     right: 50px;
     position: absolute;
   }
@@ -267,6 +268,7 @@ dl em {
   }
   h3 + p {
     margin-left: inherit;
+    margin-top: 0;
     float: left;
     width: 84%;
   }
@@ -296,7 +298,7 @@ dl em {
   }
   dl {
     width: 75%;
-    margin: 0.5em 0 0;
+    margin: 0;
   }
   dl strong {
     float: right;
@@ -333,7 +335,7 @@ dl em {
   }
   p {
     margin-left: 25px;
-    font-size: 14px;
+    font-size: 90%;
     line-height: 20px;
   }
   dl {
@@ -367,17 +369,17 @@ dl em {
   }
   p {
     margin-left: 5px;
-    font-size: 12px;
+    font-size: 75%;
     line-height: 16px;
   }
   p strong, p em {
-    font-size: 14px;
+    font-size: 140%;
     line-height: 20px;
   }
   ol li {
     width: 50%;
     margin: 0;
-    font-size: 12px;
+    font-size: 75%;
   }
   dl {
       width: 100%;
@@ -394,7 +396,35 @@ dl em {
     }
     .page-break {
         page-break-before: always;
-        padding-top: 20px;
+        /* padding-top: 20px; */
+    }
+    body {
+        font-size: 11px;
+    }
+    section {
+        page-break-after: auto;
+    }
+    section p {
+        page-break-inside:avoid; page-break-after:auto;
+    }
+    section dl {
+        page-break-inside:avoid; page-break-after:auto;
+    }
+    dl strong {
+        margin-top: -25px;
+        width: 100%;
+        text-align: right;
+    }
+
+    .level2 blockquote {
+        top: 10px;
+    }
+
+    #summary hr {
+        margin-top: 0;
+    }
+    #summary p {
+        line-height: 16px;
     }
 }
 

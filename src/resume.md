@@ -10,7 +10,7 @@ summary: 'Samurai are servant warriors known for their virtue—which is my mind
 
 > <span>[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i></span>
 > <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
-> <span>[jd.courtoy@gmail.com](mailto:jd.courtoy+resume@gmail.com)<i class="fa fa-envelope-square"></i><span>
+> <span>[jd@courtoy.io](mailto:jd+resume@courtoy.io)<i class="fa fa-envelope-square"></i><span>
 > <span>[(615)332-2716](callto:+16153322716)<i class="fa fa-phone-square"></i>
 
 ------
@@ -23,34 +23,54 @@ Samurai are servant warriors known for their virtue—which is my mindset approa
 
 ### Experience
 
+InVision
+:   **Aug 2017 - Present** *Staff Full Stack Engineer*
+
+    * Led company implementation of Authentication standards, such as OAuth 2.0 / OIDC, and custom secure cross-platform token exchanges.
+    * Spearheaded the overhaul of the company’s Authentication/Authorization services from an in-house implementation to an industry-standard Okta implementation by evaluating vendors, establishing a budget & roadmap, pitching the idea to top-level executives, gaining stakeholder buy-in from across the entire company, and leading engineering on the project.
+    * Architected and built a functioning prototype of an identity management system based on Okta in order to garner feedback, gain engineering stakeholder buy-in, and better prepare for engineering execution.
+    * Re-architected and re-built authentication-related Kong edge gateway plugins to increase ownership, visibility, efficiency, reliability, and maintainability of Auth & Sessions-related services.
+
+:   *Lead Full Stack Engineer*
+
+    * Led 3 individual teams of ~6 engineers each as domain & engineering expert, coding mentor, and force multiplier.
+    * Established & sponsored the first two yearly all-company Hackathons (IN/HACK) to raging aplomb, bringing together a total of 34 teams with members from across the company ranging from Engineering to Marketing, Sales, Customer Support, and Executives.  16 separate ideas were implemented directly into the product.
+    * Re-architected and broke apart monoliths across the company into fully functional & independently scalable microservices which dramatically increased engineering velocity and reliability.
+    * Architected & built the internal "Flow" React framework which led to much lower friction between Product, Design, and Engineering when iterating on UX.
+    * Pioneered both end-to-end & API contract testing approaches at InVision in order to increase confidence in fully automated releases.
+    * Guided organization architecture around Node.JS implementations & best practices by being the Architecture group’s voice on the topic, and actively contributing code & feedback to other team’s Node.JS services.
+    * Designed, built, and supported the "hero-rotator" Slack bot for codifying the organization's on-call schedules which saw ~90% adoption rate across engineering teams.
+
+    Tech Stack:  Go, Node.JS, React, Docker, AWS, Github Actions, Prometheus, MySQL, MongoDB, Kong
+
 LeanKit
-:   **Jan 2016 - Present** *Sr. Software Engineer*
+:   **Jan 2016 - Aug 2017** *Sr. Software Engineer*
 
     * Greased the mobile app's wheels by providing back-end development in NodeJS and DevOps support for the public API.
-    * Broke key NodeJS micro-services out of the existing monolithic .NET application while maintaining application integrity during customer use.
+    * Broke key NodeJS microservices out of the existing monolithic .NET application while maintaining application integrity during customer use.
     * Architected, built, and evangelised the mobile and web push notifications platform.
-    * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and micro-services exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
+    * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and microservices exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
     * Fostered technical direction and mentoring for Jr. and Sr. developers alike by leading code reviews, helping QA level up their automation chops, pushing new concepts into code spikes, and transitioning those spikes into delivered features.
-    * Open-sourced several projects related to RabbitMQ and ChatOps.
+    * Open-sourced several projects related to RabbitMQ and ChatOps (see Projects section: Mobot, Bucko, rabbit-topology, amqplib-topology, and amqplib-mocks).
 
-    Tech Stack: JavaScript (ES6), NodeJS (LTS), React, C#, F#, Golang, Bash (POSIX), .NET, Azure, GitHub, SQL Server, Redis, RabbitMQ, NHibernate, HAProxy, Docker, Rancher, Drone, Octopus Deploy, TeamCity, Bitrise, Hubot / Slapp / Botkit
+    Tech Stack: Node.JS, React, C#, F#, .NET, Azure, SQL Server, Redis, RabbitMQ, Docker, Bitrise
 
 NC2 Media
 :   **Feb 2015 - Jan 2016** *Sr. Full Stack Developer*
 
-    * Architected and built a cutting-edge marketplace platform for video sales built on a micro-services architecture.
+    * Architected and built a cutting-edge marketplace platform for video sales built on a microservices architecture.
     * Automated "all the things" dealing with continuous delivery to the Azure cloud as resident DevOps evangelist.
     * Supported the team in establishing an agile development culture, and the adoption of new coding standards, peer code reviews, and tooling.
     * Drove lean development practices, scalable architectures, and MVP delivery.
     * Provided technical direction and mentoring to Jr. and Sr. developers alike.
     * Open-sourced a few of our internal tools including a scaffolding engine for our front-end SPA apps, and Be-Be, our friendly chat ops automation bot.
 
-    Tech Stack: C#, F#, JavaScript, AngularJS, CucumberJS, SASS, Web API, NodeJS, Gulp, Teamcity, Bitbucket (Git), Octopus Deploy, Azure, DocumentDB, Redis
+    Tech Stack: C#, F#, AngularJS, Node.JS, .NET, Teamcity, Azure, DocumentDB, Redis
 
 Asurion
 :   **Apr 2014 - Feb 2015** *Sr. Development Tech Lead*
 
-    * Architected a new platform built around micro-services to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
+    * Architected a new platform built around microservices to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
     * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitated continuous delivery for our department with daily deployments.
     * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
     * Pushed technical excellence by achieving 100% peer-reviewed and tested code, adoption of new languages and tools, and leading the team through a truly successful Scrum process.  Our team was viewed internally and externally as the cutting edge of Asurion.
@@ -58,7 +78,7 @@ Asurion
     * Provided technical direction and training to Junior developers across teams, culminating in universal improvement in produced quality across the department.
     * Ushered in the company's first OSS initiative by providing a candidate project (Feature Toggles).
 
-    Tech Stack: Java, Groovy, Gradle, JavaScript, AngularJS, Cucumber, Compass, Spring 4 + Boot, Jenkins, Stash (Git), Thoughtworks Go
+    Tech Stack: Java, Groovy, AngularJS, Cucumber, Spring 4 + Boot, Jenkins, Thoughtworks Go
 
 WPC Services
 :   **Oct 2013 - Mar 2014** *Sr. Application Architect*
@@ -66,7 +86,7 @@ WPC Services
     * Rebuilt a legacy HL7 BizTalk messaging dashboard into a modular tiered architecture.
     * Performed an audit of the Integration Services department at HCA, assessing the current and desired future state of their architecture.
 
-    Tech Stack: C#, Web API 2, ASP.NET MVC 5, LESS for CSS, DurandalJS, KnockoutJS, BreezeJS, EF 5, SQL Server 2012, Lucene, BizTalk 2012, Azure, Visual Studio Online, TFS
+    Tech Stack: C#, .NET, SQL Server 2012, Lucene, BizTalk 2012, Azure
 
 Press Ganey Associates
 :   **Nov 2009 - Oct 2013** *Director, Customer Experience*
@@ -77,7 +97,7 @@ Press Ganey Associates
     * Coordinated with different internal groups comprised of developers, product owners, and senior management to architect and deliver the warehouse as well as MDM solutions for patients, physicians, and facilities.
     * Designed and implemented a query API that would allow for applications across the enterprise to ask questions of the warehouse in order to consolidate the metric, benchmark, and statistical calculations used by the business.
 
-    Tech Stack: C#, Web API, T4 Templates, NServiceBus, Autofac, StructureMap, RavenDB, SQL Server 2012, TeamCity
+    Tech Stack: C#, NServiceBus, RavenDB, SQL Server 2012, TeamCity
 
 :   *Director, Software Architecture*
 
@@ -88,22 +108,33 @@ Press Ganey Associates
     * Coached team members on patterns, usage, and acceptable development practices.
     * Implemented continuous integration and push-button deployments.
 
-    Tech Stack: C#, ASP.NET MVC 4, Web API, Castle Windsor, Ninject, JavaScript, jQuery, KnockoutJS, RaphaelJS, HighCharts, MDX, LESS for CSS, RavenDB, XText, TeamCity
+    Tech Stack: C#, jQuery, KnockoutJS, RaphaelJS, MDX, RavenDB, XText, TeamCity
 
 Data Advantage, LLC
-:   **Jan 2008 - Nov 2009 (aquisition)** *Director of Software Architecture*
+:   **Jan 2008 - Nov 2009** *Director of Software Architecture*
 
-    Tech Stack: C#, ASP.NET MVC, Caliburn / Prism, Castle Windsor, NHibernate, SQL Server 2008 R2, SSRS, JavaScript, jQuery, RaphaelJS, HighCharts, ArcGIS, SVN, Cruise Control
+    Tech Stack: C#, SQL Server 2008 R2, jQuery, RaphaelJS, HighCharts, ArcGIS
 
 Loch Erin
-:   **Feb 2007 - Jan 2008 (acquisition)** *Principal Software Architect*
+:   **Feb 2007 - Jan 2008** *Principal Software Architect*
 
-    Tech Stack: C#, ASP.NET, HTML/CSS, WCF, WF, SQL Server 2008, NHibernate
+    Tech Stack: C#, WCF, WF, SQL Server 2008
 
 Community Health Systems
 :   **Feb 2007 - Jan 2008** *Sr. Web Developer*
 
-    Tech Stack: C#, ASP.NET, SQL Server, SSRS, Antlr
+    Tech Stack: C#, SQL Server
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 ------
 
@@ -139,7 +170,7 @@ trellow
 
 flippers
 :    **[http://github.com/Bunk/flippers](http://github.com/Bunk/flippers)**
-    A feature toggles micro-service built on the MEAN stack with planned client support in JavaScript, C#, Java, and Ruby.
+    A feature toggles microservice built on the MEAN stack with planned client support in JavaScript, C#, Java, and Ruby.
 
 resume
 :    **[http://github.com/Bunk/resume](http://github.com/Bunk/resume)**
@@ -154,36 +185,13 @@ Bachelor of Science (Computer Science)
 
 ------
 
-### Languages
-
-1. JavaScript
-2. Java / Groovy
-3. C# / F#
-4. Ruby
-5. Powershell / Bash
-6. Antlr / XText / C / C++
-
-### Platforms
-
-1. Spring 4 / Spring Boot
-2. ASP.NET / MVC / Web API
-3. NodeJS / Hapi / Seneca
-4. NoSQL / Hadoop
-5. SQL Server / MySQL
-6. Docker / Compose / Tutum
-7. Azure / AWS / Heroku
-8. Git / Hg / SVN
-9. OS X / Linux / Windows
-10. RabbitMQ / NServiceBus
-
 ### Skills
 
-1. Scrum / Kanban / Agile
-2. OOA / OOD / AOP / DDD
-3. SOA / Micro-Services
-4. Test-Driven Development
-5. Trunk-Based Development
-6. Continuous Delivery
-7. Continuous Review
-8. Team Building
-9. Polyglot
+Expert (★★★★☆)
+: Node.JS, React, Docker, Git, OOD, OAuth 2.0 / SAML, Lean / Kanban / Scrum / Agile, SQL, Architecture & Messaging Patterns
+
+Advanced (★★★☆☆)
+: Go, Kubernetes, AWS, MongoDB
+
+Familiar (★★☆☆☆)
+: Vue.js, Java, Spring, Ruby
