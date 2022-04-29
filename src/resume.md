@@ -1,12 +1,12 @@
 ---
 title: 'JD Courtoy - Resume'
 author: 'JD Courtoy'
-summary: 'Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work, and am a life-long, continuous student of the software development community.'
+summary: 'Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work and am a life-long, continuous student of the software development community.'
 ...
 
 # JD Courtoy
 
-## Lead Architect & Coding Samurai
+## Tech Driver & Coding Samurai
 
 > <span>[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i></span>
 > <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
@@ -17,7 +17,7 @@ summary: 'Samurai are servant warriors known for their virtue—which is my mind
 
 ### Summary
 
-Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution, and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work, and am a life-long, continuous student of the software development community.
+Samurai are servant warriors known for their virtue—which is my mindset approaching software development.  I have a passion for solving complicated problems using the simplest possible solution and seek to work with other like-minded polyglots who utilize the right tools for the job at hand. I strive to humbly delight consumers of my work, and am a life-long, continuous student of the software development community.
 
 ------
 
@@ -33,8 +33,9 @@ InVision
 
 :   *Lead Full Stack Engineer*
 
+    * Served as interim manager for 6 months on the Authentication squad.
     * Led 3 individual teams of ~6 engineers each as domain & engineering expert, coding mentor, and force multiplier.
-    * Established & sponsored the first two yearly all-company Hackathons (IN/HACK) to raging aplomb, bringing together a total of 34 teams with members from across the company ranging from Engineering to Marketing, Sales, Customer Support, and Executives.  16 separate ideas were implemented directly into the product.
+    * Established & sponsored the first two yearly all-company Hackathons (IN/HACK) to rave review, bringing together a total of 34 teams with members from across the company ranging from Engineering to Marketing, Sales, Customer Support, and Executives.  Sixteen (16) separate ideas were implemented directly into the product.
     * Re-architected and broke apart monoliths across the company into fully functional & independently scalable microservices which dramatically increased engineering velocity and reliability.
     * Architected & built the internal "Flow" React framework which led to much lower friction between Product, Design, and Engineering when iterating on UX.
     * Pioneered both end-to-end & API contract testing approaches at InVision in order to increase confidence in fully automated releases.
@@ -46,8 +47,8 @@ InVision
 LeanKit
 :   **Jan 2016 - Aug 2017** *Sr. Software Engineer*
 
-    * Greased the mobile app's wheels by providing back-end development in NodeJS and DevOps support for the public API.
-    * Broke key NodeJS microservices out of the existing monolithic .NET application while maintaining application integrity during customer use.
+    * Greased the mobile app's wheels by providing back-end development in Node.JS and DevOps support for the public API.
+    * Broke key Node.JS microservices out of the existing monolithic .NET application while maintaining application integrity during customer use.
     * Architected, built, and evangelised the mobile and web push notifications platform.
     * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and microservices exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
     * Fostered technical direction and mentoring for Jr. and Sr. developers alike by leading code reviews, helping QA level up their automation chops, pushing new concepts into code spikes, and transitioning those spikes into delivered features.
@@ -72,7 +73,7 @@ Asurion
 
     * Architected a new platform built around microservices to "strangle out" hard to test, defect-prone, and unmanageable code into modular, single purpose units which could be utilized across tenants.
     * Instrumental in designing and implementing a trunk-based build and deployment pipeline which facilitated continuous delivery for our department with daily deployments.
-    * Instrumental in establishing an Agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
+    * Instrumental in establishing an agile development culture, and driving success through the adoption of new coding standards, peer code reviews, and tooling.
     * Pushed technical excellence by achieving 100% peer-reviewed and tested code, adoption of new languages and tools, and leading the team through a truly successful Scrum process.  Our team was viewed internally and externally as the cutting edge of Asurion.
     * Led groups of technical and business colleagues through Sharpen-the-Saw meet-ups in order to drive knowledge share across the company.
     * Provided technical direction and training to Junior developers across teams, culminating in universal improvement in produced quality across the department.
@@ -93,7 +94,7 @@ Press Ganey Associates
 
     * Supplied technical direction and management to a team of 20 developers across multiple ongoing projects (both existing and new).
     * Architected and drove implementation of a service-oriented approach to the Physician Playbook (PPB) application.
-    * Recruited and hired a team of some of the best data warehousing experts in the SQL Server space to architect and implement a Kimball-style data warehouse expected to grow upwards of 200TB in the next two years.  The warehouse was designed to consolidate clinical, financial, patient satisfaction, and quality data into a single analytics engine.
+    * Recruited and hired a team of some of the best data warehousing experts in the SQL Server space to architect and implement a Kimball-style data warehouse expected to grow upwards of 200TB.  The warehouse was designed to consolidate clinical, financial, patient satisfaction, and quality data into a single analytics engine.
     * Coordinated with different internal groups comprised of developers, product owners, and senior management to architect and deliver the warehouse as well as MDM solutions for patients, physicians, and facilities.
     * Designed and implemented a query API that would allow for applications across the enterprise to ask questions of the warehouse in order to consolidate the metric, benchmark, and statistical calculations used by the business.
 

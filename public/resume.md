@@ -1,8 +1,8 @@
 JD Courtoy
 ==========
 
-Lead Architect & Coding Samurai
--------------------------------
+Tech Driver & Coding Samurai
+----------------------------
 
 > [[github.com/Bunk](https://github.com/Bunk)<i class="fa fa-github-square"></i>]{}
 > <span>[linkedin.com/in/jdcourtoy](http://www.linkedin.com/in/jdcourtoy)<i class="fa fa-linkedin-square"></i><span>
@@ -15,7 +15,7 @@ Lead Architect & Coding Samurai
 
 Samurai are servant warriors known for their virtue—which is my mindset
 approaching software development. I have a passion for solving
-complicated problems using the simplest possible solution, and seek to
+complicated problems using the simplest possible solution and seek to
 work with other like-minded polyglots who utilize the right tools for
 the job at hand. I strive to humbly delight consumers of my work, and am
 a life-long, continuous student of the software development community.
@@ -49,14 +49,16 @@ InVision
 
 :   *Lead Full Stack Engineer*
 
+    -   Served as interim manager for 6 months on the Authentication
+        squad.
     -   Led 3 individual teams of \~6 engineers each as domain &
         engineering expert, coding mentor, and force multiplier.
     -   Established & sponsored the first two yearly all-company
-        Hackathons (IN/HACK) to raging aplomb, bringing together a total
+        Hackathons (IN/HACK) to rave review, bringing together a total
         of 34 teams with members from across the company ranging from
         Engineering to Marketing, Sales, Customer Support, and
-        Executives. 16 separate ideas were implemented directly into the
-        product.
+        Executives. Sixteen (16) separate ideas were implemented
+        directly into the product.
     -   Re-architected and broke apart monoliths across the company into
         fully functional & independently scalable microservices which
         dramatically increased engineering velocity and reliability.
@@ -82,8 +84,8 @@ LeanKit
 :   **Jan 2016 - Aug 2017** *Sr. Software Engineer*
 
     -   Greased the mobile app's wheels by providing back-end
-        development in NodeJS and DevOps support for the public API.
-    -   Broke key NodeJS microservices out of the existing monolithic
+        development in Node.JS and DevOps support for the public API.
+    -   Broke key Node.JS microservices out of the existing monolithic
         .NET application while maintaining application integrity during
         customer use.
     -   Architected, built, and evangelised the mobile and web push
@@ -136,7 +138,7 @@ Asurion
     -   Instrumental in designing and implementing a trunk-based build
         and deployment pipeline which facilitated continuous delivery
         for our department with daily deployments.
-    -   Instrumental in establishing an Agile development culture, and
+    -   Instrumental in establishing an agile development culture, and
         driving success through the adoption of new coding standards,
         peer code reviews, and tooling.
     -   Pushed technical excellence by achieving 100% peer-reviewed and
@@ -178,10 +180,10 @@ Press Ganey Associates
         approach to the Physician Playbook (PPB) application.
     -   Recruited and hired a team of some of the best data warehousing
         experts in the SQL Server space to architect and implement a
-        Kimball-style data warehouse expected to grow upwards of 200TB
-        in the next two years. The warehouse was designed to consolidate
-        clinical, financial, patient satisfaction, and quality data into
-        a single analytics engine.
+        Kimball-style data warehouse expected to grow upwards of 200TB.
+        The warehouse was designed to consolidate clinical, financial,
+        patient satisfaction, and quality data into a single analytics
+        engine.
     -   Coordinated with different internal groups comprised of
         developers, product owners, and senior management to architect
         and deliver the warehouse as well as MDM solutions for patients,
@@ -212,15 +214,14 @@ Press Ganey Associates
 
 Data Advantage, LLC
 
-:   **Jan 2008 - Nov 2009 (aquisition)** *Director of Software
-    Architecture*
+:   **Jan 2008 - Nov 2009** *Director of Software Architecture*
 
     Tech Stack: C\#, SQL Server 2008 R2, jQuery, RaphaelJS, HighCharts,
     ArcGIS
 
 Loch Erin
 
-:   **Feb 2007 - Jan 2008 (acquisition)** *Principal Software Architect*
+:   **Feb 2007 - Jan 2008** *Principal Software Architect*
 
     Tech Stack: C\#, WCF, WF, SQL Server 2008
 
@@ -229,6 +230,8 @@ Community Health Systems
 :   **Feb 2007 - Jan 2008** *Sr. Web Developer*
 
     Tech Stack: C\#, SQL Server
+
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 
 ------------------------------------------------------------------------
 
@@ -285,6 +288,13 @@ Bachelor of Science (Computer Science)
 
 ### Skills
 
-Expert (★★★★☆): Node.JS, React, Docker, SQL, Git, OOD, OAuth 2.0 / SAML,
-Lean / Agile Advanced (★★★☆☆): Go, Kubernetes, AWS Familiar (★★☆☆☆):
-Vue.js, Java, Spring, Ruby
+Expert (★★★★☆)
+:   Node.JS, React, Docker, Git, OOD, OAuth 2.0 / SAML, Lean / Kanban /
+    Scrum / Agile, SQL, Architecture & Messaging Patterns
+
+Advanced (★★★☆☆)
+:   Go, Kubernetes, AWS, MongoDB
+
+Familiar (★★☆☆☆)
+:   Vue.js, Java, Spring, Ruby
+
