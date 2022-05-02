@@ -415,6 +415,9 @@ dl em {
         width: 100%;
         text-align: right;
     }
+    dd > p {
+        margin-bottom: 0;
+    }
 
     .level2 blockquote {
         top: 10px;

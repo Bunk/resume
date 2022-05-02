@@ -48,7 +48,7 @@ LeanKit
 :   **Jan 2016 - Aug 2017** *Sr. Software Engineer*
 
     * Greased the mobile app's wheels by providing back-end development in Node.JS and DevOps support for the public API.
-    * Broke key Node.JS microservices out of the existing monolithic .NET application while maintaining application integrity during customer use.
+    * Broke key Node.JS microservices out of the existing monolithic .NET application while maintaining application integrity during customer use.<p class='page-break' />
     * Architected, built, and evangelised the mobile and web push notifications platform.
     * Championed and built the ChatOps-enabled delivery pipeline for both the mobile app and microservices exploiting feature toggles for continuous deployments with weekly deployments on mobile and daily deployments on the back-end.
     * Fostered technical direction and mentoring for Jr. and Sr. developers alike by leading code reviews, helping QA level up their automation chops, pushing new concepts into code spikes, and transitioning those spikes into delivered features.
@@ -127,15 +127,7 @@ Community Health Systems
     Tech Stack: C#, SQL Server
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<p class='page-break' />
 
 ------
 
@@ -160,10 +152,6 @@ amqplib-topology
 amqplib-mocks
 :   **[https://github.com/Bunk/amqplib-mocks](https://github.com/Bunk/amqplib-mocks)**
     Mocks for the amqp.node library
-
-HL7 dashboard
-:   **[http://hl7-dashboard.azurewebsites.net/](http://hl7-dashboard.azurewebsites.net/)**
-    A responsive dashboard for searching & viewing HL7 message throughput built on Web API, DurandalJS, SignalR, and Lucene.
 
 trellow
 :   **[http://github.com/Bunk/trellow](http://github.com/Bunk/trellow)**
